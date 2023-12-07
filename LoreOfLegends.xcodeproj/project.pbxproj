@@ -11,6 +11,9 @@
 		BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2022B225E0A001E5377 /* ContentView.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
 		BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */; };
+		BD71A2362B2265BB001E5377 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2352B2265BB001E5377 /* Typography.swift */; };
+		BD71A2392B2265D5001E5377 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = BD71A2382B2265D5001E5377 /* CachedAsyncImage */; };
+		BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,8 @@
 		BD71A2022B225E0A001E5377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD71A2352B2265BB001E5377 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD71A2392B2265D5001E5377 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,8 @@
 		BD71A2122B226121001E5377 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BD71A2352B2265BB001E5377 /* Typography.swift */,
+				BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -123,6 +131,9 @@
 			dependencies = (
 			);
 			name = LoreOfLegends;
+			packageProductDependencies = (
+				BD71A2382B2265D5001E5377 /* CachedAsyncImage */,
+			);
 			productName = LoreOfLegends;
 			productReference = BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +162,9 @@
 				Base,
 			);
 			mainGroup = BD71A1F42B225E0A001E5377;
+			packageReferences = (
+				BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = BD71A1FE2B225E0A001E5377 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,7 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */,
+				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
 				BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD71A2382B2265D5001E5377 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD71A1F52B225E0A001E5377 /* Project object */;
 }
