@@ -92,3 +92,6 @@ iOSInjectionProject/
 # Ignore those folders
 
 /LoreOfLegends/Fonts/
+/LoreOfLegends/Assets.xcassets/GreyColorPalette
+/LoreOfLegends/Assets.xcassets/GoldColorPalette
+/LoreOfLegends/Assets.xcassets/BlueColorPalette
