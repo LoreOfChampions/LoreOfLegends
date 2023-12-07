@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD71A2012B225E0A001E5377 /* LoreOfLegendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegendsApp.swift */; };
+		BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */; };
 		BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2022B225E0A001E5377 /* ContentView.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
 		BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD71A2002B225E0A001E5377 /* LoreOfLegendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegendsApp.swift; sourceTree = "<group>"; };
+		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
 		BD71A2022B225E0A001E5377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		BD71A1FF2B225E0A001E5377 /* LoreOfLegends */ = {
 			isa = PBXGroup;
 			children = (
-				BD71A2002B225E0A001E5377 /* LoreOfLegendsApp.swift */,
+				BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */,
 				BD71A2022B225E0A001E5377 /* ContentView.swift */,
 				BD71A2042B225E0B001E5377 /* Assets.xcassets */,
 				BD71A2062B225E0B001E5377 /* Preview Content */,
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */,
-				BD71A2012B225E0A001E5377 /* LoreOfLegendsApp.swift in Sources */,
+				BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
