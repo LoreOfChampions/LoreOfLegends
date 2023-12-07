@@ -11,22 +11,6 @@
 		BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2022B225E0A001E5377 /* ContentView.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
 		BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */; };
-		BD71A21E2B226246001E5377 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2142B226246001E5377 /* BeaufortforLOL-Medium.otf */; };
-		BD71A21F2B226246001E5377 /* BeaufortforLOL-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2152B226246001E5377 /* BeaufortforLOL-BoldItalic.otf */; };
-		BD71A2202B226246001E5377 /* BeaufortforLOL-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2162B226246001E5377 /* BeaufortforLOL-MediumItalic.otf */; };
-		BD71A2212B226246001E5377 /* BeaufortforLOL-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2172B226246001E5377 /* BeaufortforLOL-Regular.otf */; };
-		BD71A2222B226246001E5377 /* BeaufortforLOL-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2182B226246001E5377 /* BeaufortforLOL-HeavyItalic.otf */; };
-		BD71A2232B226246001E5377 /* BeaufortforLOL-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2192B226246001E5377 /* BeaufortforLOL-LightItalic.otf */; };
-		BD71A2242B226246001E5377 /* BeaufortforLOL-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A21A2B226246001E5377 /* BeaufortforLOL-Heavy.otf */; };
-		BD71A2252B226246001E5377 /* BeaufortforLOL-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A21B2B226246001E5377 /* BeaufortforLOL-Bold.otf */; };
-		BD71A2262B226246001E5377 /* BeaufortforLOL-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A21C2B226246001E5377 /* BeaufortforLOL-Light.otf */; };
-		BD71A2272B226246001E5377 /* BeaufortforLOL-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A21D2B226246001E5377 /* BeaufortforLOL-Italic.otf */; };
-		BD71A22F2B22624F001E5377 /* Spiegel-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2292B22624F001E5377 /* Spiegel-BoldItalic.otf */; };
-		BD71A2302B22624F001E5377 /* Spiegel-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A22A2B22624F001E5377 /* Spiegel-Bold.otf */; };
-		BD71A2312B22624F001E5377 /* Spiegel-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A22B2B22624F001E5377 /* Spiegel-RegularItalic.otf */; };
-		BD71A2322B22624F001E5377 /* Spiegel-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A22C2B22624F001E5377 /* Spiegel-SemiBold.otf */; };
-		BD71A2332B22624F001E5377 /* Spiegel-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A22D2B22624F001E5377 /* Spiegel-SemiBoldItalic.otf */; };
-		BD71A2342B22624F001E5377 /* Spiegel-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD71A22E2B22624F001E5377 /* Spiegel-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,22 +19,6 @@
 		BD71A2022B225E0A001E5377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD71A2142B226246001E5377 /* BeaufortforLOL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Medium.otf"; sourceTree = "<group>"; };
-		BD71A2152B226246001E5377 /* BeaufortforLOL-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-BoldItalic.otf"; sourceTree = "<group>"; };
-		BD71A2162B226246001E5377 /* BeaufortforLOL-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-MediumItalic.otf"; sourceTree = "<group>"; };
-		BD71A2172B226246001E5377 /* BeaufortforLOL-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Regular.otf"; sourceTree = "<group>"; };
-		BD71A2182B226246001E5377 /* BeaufortforLOL-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-HeavyItalic.otf"; sourceTree = "<group>"; };
-		BD71A2192B226246001E5377 /* BeaufortforLOL-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-LightItalic.otf"; sourceTree = "<group>"; };
-		BD71A21A2B226246001E5377 /* BeaufortforLOL-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Heavy.otf"; sourceTree = "<group>"; };
-		BD71A21B2B226246001E5377 /* BeaufortforLOL-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Bold.otf"; sourceTree = "<group>"; };
-		BD71A21C2B226246001E5377 /* BeaufortforLOL-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Light.otf"; sourceTree = "<group>"; };
-		BD71A21D2B226246001E5377 /* BeaufortforLOL-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Italic.otf"; sourceTree = "<group>"; };
-		BD71A2292B22624F001E5377 /* Spiegel-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-BoldItalic.otf"; sourceTree = "<group>"; };
-		BD71A22A2B22624F001E5377 /* Spiegel-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-Bold.otf"; sourceTree = "<group>"; };
-		BD71A22B2B22624F001E5377 /* Spiegel-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-RegularItalic.otf"; sourceTree = "<group>"; };
-		BD71A22C2B22624F001E5377 /* Spiegel-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-SemiBold.otf"; sourceTree = "<group>"; };
-		BD71A22D2B22624F001E5377 /* Spiegel-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-SemiBoldItalic.otf"; sourceTree = "<group>"; };
-		BD71A22E2B22624F001E5377 /* Spiegel-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +96,6 @@
 		BD71A2112B226107001E5377 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				BD71A2282B22624F001E5377 /* Spiegel-OTF */,
-				BD71A2132B226246001E5377 /* BeaufortForLoL-OTF */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -139,36 +105,6 @@
 			children = (
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		BD71A2132B226246001E5377 /* BeaufortForLoL-OTF */ = {
-			isa = PBXGroup;
-			children = (
-				BD71A2142B226246001E5377 /* BeaufortforLOL-Medium.otf */,
-				BD71A2152B226246001E5377 /* BeaufortforLOL-BoldItalic.otf */,
-				BD71A2162B226246001E5377 /* BeaufortforLOL-MediumItalic.otf */,
-				BD71A2172B226246001E5377 /* BeaufortforLOL-Regular.otf */,
-				BD71A2182B226246001E5377 /* BeaufortforLOL-HeavyItalic.otf */,
-				BD71A2192B226246001E5377 /* BeaufortforLOL-LightItalic.otf */,
-				BD71A21A2B226246001E5377 /* BeaufortforLOL-Heavy.otf */,
-				BD71A21B2B226246001E5377 /* BeaufortforLOL-Bold.otf */,
-				BD71A21C2B226246001E5377 /* BeaufortforLOL-Light.otf */,
-				BD71A21D2B226246001E5377 /* BeaufortforLOL-Italic.otf */,
-			);
-			path = "BeaufortForLoL-OTF";
-			sourceTree = "<group>";
-		};
-		BD71A2282B22624F001E5377 /* Spiegel-OTF */ = {
-			isa = PBXGroup;
-			children = (
-				BD71A2292B22624F001E5377 /* Spiegel-BoldItalic.otf */,
-				BD71A22A2B22624F001E5377 /* Spiegel-Bold.otf */,
-				BD71A22B2B22624F001E5377 /* Spiegel-RegularItalic.otf */,
-				BD71A22C2B22624F001E5377 /* Spiegel-SemiBold.otf */,
-				BD71A22D2B22624F001E5377 /* Spiegel-SemiBoldItalic.otf */,
-				BD71A22E2B22624F001E5377 /* Spiegel-Regular.otf */,
-			);
-			path = "Spiegel-OTF";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,23 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD71A2322B22624F001E5377 /* Spiegel-SemiBold.otf in Resources */,
-				BD71A2202B226246001E5377 /* BeaufortforLOL-MediumItalic.otf in Resources */,
 				BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */,
-				BD71A2242B226246001E5377 /* BeaufortforLOL-Heavy.otf in Resources */,
-				BD71A21E2B226246001E5377 /* BeaufortforLOL-Medium.otf in Resources */,
-				BD71A2222B226246001E5377 /* BeaufortforLOL-HeavyItalic.otf in Resources */,
-				BD71A2262B226246001E5377 /* BeaufortforLOL-Light.otf in Resources */,
-				BD71A21F2B226246001E5377 /* BeaufortforLOL-BoldItalic.otf in Resources */,
-				BD71A22F2B22624F001E5377 /* Spiegel-BoldItalic.otf in Resources */,
-				BD71A2252B226246001E5377 /* BeaufortforLOL-Bold.otf in Resources */,
-				BD71A2342B22624F001E5377 /* Spiegel-Regular.otf in Resources */,
-				BD71A2312B22624F001E5377 /* Spiegel-RegularItalic.otf in Resources */,
-				BD71A2212B226246001E5377 /* BeaufortforLOL-Regular.otf in Resources */,
-				BD71A2302B22624F001E5377 /* Spiegel-Bold.otf in Resources */,
-				BD71A2272B226246001E5377 /* BeaufortforLOL-Italic.otf in Resources */,
-				BD71A2232B226246001E5377 /* BeaufortforLOL-LightItalic.otf in Resources */,
-				BD71A2332B22624F001E5377 /* Spiegel-SemiBoldItalic.otf in Resources */,
 				BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
