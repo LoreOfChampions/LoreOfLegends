@@ -14,6 +14,7 @@
 		BD71A2362B2265BB001E5377 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2352B2265BB001E5377 /* Typography.swift */; };
 		BD71A2392B2265D5001E5377 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = BD71A2382B2265D5001E5377 /* CachedAsyncImage */; };
 		BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */; };
+		BD71A23D2B22666C001E5377 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A23C2B22666C001E5377 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD71A2352B2265BB001E5377 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+ext.swift"; sourceTree = "<group>"; };
+		BD71A23C2B22666C001E5377 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				BD71A2352B2265BB001E5377 /* Typography.swift */,
 				BD71A23A2B2265EB001E5377 /* URLCache+ext.swift */,
+				BD71A23C2B22666C001E5377 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD71A23D2B22666C001E5377 /* Constants.swift in Sources */,
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
