@@ -9,9 +9,25 @@ import SwiftUI
 
 @main
 struct LoreOfLegends: App {
+    @State private var version: String?
+
+    init() {
+        Fonts.registerFontsIfNeeded()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                if let version {
+                    ChampionsView()
+                        .environmentObject(ChampionViewModel(version: version))
+                        .environmentObject(ChampionDetailViewModel(version: version))
+                        .preferredColorScheme(.dark)
+                }
+            }
+            .task {
+                version = try? await VersionViewModel.fetchLatestVersion()
+            }
         }
     }
 }
