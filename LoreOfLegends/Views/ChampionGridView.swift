@@ -13,8 +13,8 @@ struct ChampionGridView: View {
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 150, maximum: 200))]
 
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(viewModel.alphabeticallySortedChampions) { champion in
+        LazyVGrid(columns: columns, spacing: 20) {
+            ForEach(viewModel.selectedChampion != nil || !viewModel.searchingQuery.isEmpty ? viewModel.filteredChampions : viewModel.alphabeticallySortedChampions) { champion in
                 NavigationLink {
                     ChampionDetailView(champion: champion)
                 } label: {
@@ -22,6 +22,7 @@ struct ChampionGridView: View {
                 }
             }
         }
+        .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
     }
 }
 
