@@ -43,7 +43,12 @@ struct ChampionsView: View {
         }
         .tint(Color.gold3)
         .task {
-            try? await viewModel.getChampions()
+            do {
+                try await viewModel.getChampions()
+            } catch {
+                print("Couldn't get the champions.")
+            }
+
         }
     }
 }

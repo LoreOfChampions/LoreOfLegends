@@ -26,7 +26,11 @@ struct LoreOfLegends: App {
                 }
             }
             .task {
-                version = try? await VersionViewModel.fetchLatestVersion()
+                do {
+                    version = try await VersionViewModel.fetchLatestVersion()
+                } catch {
+                    print("Couldn't fetch the latest version")
+                }
             }
         }
     }
