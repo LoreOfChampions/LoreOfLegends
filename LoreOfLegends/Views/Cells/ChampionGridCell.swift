@@ -13,22 +13,22 @@ struct ChampionGridCell: View {
     let champion: Champion
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             CachedAsyncImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/\(champion.id)_0.jpg"), urlCache: URLCache.imageCache) { image in
                 image
                     .resizable()
-                    .aspectRatio(0.66, contentMode: .fill)
-                    .frame(height: 250)
+                    .aspectRatio(contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
             } placeholder: {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.grey6)
-                    .frame(height: 250)
+                    .frame(height: 200)
                     .opacity(0.5)
                     .overlay {
                         ProgressView()
                     }
             }
+            .padding(.leading, -6)
 
             Text(champion.name)
                 .font(Fonts.beaufortforLolBold.withSize(23))
