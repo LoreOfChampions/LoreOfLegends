@@ -26,7 +26,7 @@ struct ChampionsView: View {
                 }
             }
             .navigationTitle(Constants.appTitle)
-            .padding(.horizontal)
+            .padding(.horizontal, 19)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     SwiftUI.Image(systemName: viewModel.layoutButton)
