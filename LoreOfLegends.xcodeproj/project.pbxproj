@@ -24,7 +24,6 @@
 		BD6DD17D2B2701A4001ADBB4 /* Spiegel-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD1772B2701A4001ADBB4 /* Spiegel-SemiBoldItalic.otf */; };
 		BD6DD17E2B2701A4001ADBB4 /* Spiegel-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD1782B2701A4001ADBB4 /* Spiegel-Regular.otf */; };
 		BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */; };
-		BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2022B225E0A001E5377 /* ContentView.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
 		BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */; };
 		BD71A2362B2265BB001E5377 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2352B2265BB001E5377 /* Typography.swift */; };
@@ -65,7 +64,6 @@
 		BD6DD1782B2701A4001ADBB4 /* Spiegel-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-Regular.otf"; sourceTree = "<group>"; };
 		BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
-		BD71A2022B225E0A001E5377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD71A2352B2265BB001E5377 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				BD71A2542B22685E001E5377 /* Cells */,
-				BD71A2022B225E0A001E5377 /* ContentView.swift */,
 				BD71A24A2B226782001E5377 /* ChampionsView.swift */,
 				BD71A24C2B2267A8001E5377 /* ChampionListView.swift */,
 				BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */,
@@ -330,7 +327,6 @@
 				BD71A2562B22686C001E5377 /* ChampionListCell.swift in Sources */,
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */,
-				BD71A2032B225E0A001E5377 /* ContentView.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
 				BD71A2532B226844001E5377 /* TabView+ext.swift in Sources */,
 				BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */,
