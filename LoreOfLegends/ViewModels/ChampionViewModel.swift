@@ -11,6 +11,22 @@ class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
     @Published var shouldShowGridLayout = false
 
+    @Published var selectedChampion: Champion?
+    @Published var searchingQuery = ""
+
+    var filteredChampions: [Champion] {
+        if let champion = selectedChampion {
+            return champions.filter({ $0.id.contains(champion.id) })
+        } else {
+            if !searchingQuery.isEmpty {
+                let lowercasedQuery = searchingQuery.lowercased()
+                return champions.filter({ $0.name.lowercased().contains(lowercasedQuery) })
+            } else {
+                return []
+            }
+        }
+    }
+
     var layoutButton: String {
         if shouldShowGridLayout {
             return "square.grid.3x3"
