@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CachedAsyncImage
+import ScrollKit
 
 struct ChampionDetailView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
 		BD6DD1682B27019E001ADBB4 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD15E2B27019E001ADBB4 /* BeaufortforLOL-Medium.otf */; };
 		BD6DD1692B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD15F2B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf */; };
 		BD6DD16A2B27019E001ADBB4 /* BeaufortforLOL-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD1602B27019E001ADBB4 /* BeaufortforLOL-MediumItalic.otf */; };
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */,
 				BD71A2392B2265D5001E5377 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +246,7 @@
 			name = LoreOfLegends;
 			packageProductDependencies = (
 				BD71A2382B2265D5001E5377 /* CachedAsyncImage */,
+				BD3AA6E32B29F76700DFD78A /* ScrollKit */,
 			);
 			productName = LoreOfLegends;
 			productReference = BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */;
@@ -275,6 +278,7 @@
 			mainGroup = BD71A1F42B225E0A001E5377;
 			packageReferences = (
 				BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				BD3AA6E22B29F76700DFD78A /* XCRemoteSwiftPackageReference "ScrollKit" */,
 			);
 			productRefGroup = BD71A1FE2B225E0A001E5377 /* Products */;
 			projectDirPath = "";
@@ -546,6 +550,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BD3AA6E22B29F76700DFD78A /* XCRemoteSwiftPackageReference "ScrollKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/ScrollKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
@@ -557,6 +569,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD3AA6E32B29F76700DFD78A /* ScrollKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD3AA6E22B29F76700DFD78A /* XCRemoteSwiftPackageReference "ScrollKit" */;
+			productName = ScrollKit;
+		};
 		BD71A2382B2265D5001E5377 /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
