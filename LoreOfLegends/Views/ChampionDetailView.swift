@@ -19,6 +19,9 @@ struct ChampionDetailView: View {
     @State private var lore = ""
     @State private var passive: Champion.Passive = Champion.Passive(name: "", description: "", image: Champion.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0))
 
+    @State private var offset = CGPoint.zero
+    @State private var visibleRatio = CGFloat.zero
+
     let champion: Champion
 
     init(champion: Champion) {
@@ -26,9 +29,20 @@ struct ChampionDetailView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ScrollViewWithStickyHeader(header: {
+            ZStack {
+                if visibleRatio > 0 {
+                    championSplashImageView
+                        .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .top)))
+                } else {
+                    Color.darkBackground
+                        .transition(.asymmetric(insertion: .move(edge: .top), removal: .opacity))
+                }
+            }
+        }, headerHeight: 400) { offset, headerVisibleRatio in
+            handleOffset(offset, visibleHeaderRatio: headerVisibleRatio)
+        } content: {
             VStack(spacing: 0) {
-                skinTabView
                 VStack(alignment: .leading) {
                     championInfo
                     championLore
@@ -53,6 +67,25 @@ struct ChampionDetailView: View {
             } catch {
                 print(error)
             }
+        }
+    }
+
+    private var championSplashImageView: some View {
+        ZStack(alignment: .bottom) {
+            CachedAsyncImage(
+                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_0.jpg"),
+                urlCache: URLCache.imageCache) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                } placeholder: {
+                    ProgressView()
+                }
+
+            LinearGradient(colors: [.clear, .darkBackground], startPoint: .top, endPoint: .bottom)
+                .frame(height: 150)
         }
     }
 
@@ -200,6 +233,11 @@ struct ChampionDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15))
             }
         }
+    }
+
+    private func handleOffset(_ scrollOffset: CGPoint, visibleHeaderRatio: CGFloat) {
+        self.offset = scrollOffset
+        self.visibleRatio = visibleHeaderRatio
     }
 }
 
