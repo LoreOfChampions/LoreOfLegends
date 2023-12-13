@@ -24,6 +24,11 @@ struct ChampionsView: View {
                 } else {
                     ChampionGridView()
                 }
+
+                Text("App version: \(viewModel.version)")
+                    .font(Fonts.beaufortforLolLight.withSize(11))
+                    .foregroundStyle(Color.gold3)
+                    .padding(.vertical)
             }
             .navigationTitle(Constants.appTitle)
             .padding(.horizontal, 19)
