@@ -26,6 +26,7 @@ struct ChampionGridCell: View {
                     .opacity(0.5)
                     .overlay {
                         ProgressView()
+                            .tint(Color.gold3)
                     }
             }
             .padding(.leading, -6)
