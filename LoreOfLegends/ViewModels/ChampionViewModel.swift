@@ -10,9 +10,11 @@ import Foundation
 class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
     @Published var shouldShowGridLayout = false
-
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
+
+    @Published var currentPage = 1
+    private let pageSize = 20
 
     var filteredChampions: [Champion] {
         if let champion = selectedChampion {
