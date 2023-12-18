@@ -89,28 +89,6 @@ struct ChampionDetailView: View {
         }
     }
 
-    private var skinTabView: some View {
-        TabView {
-            ForEach(skins) { skin in
-                CachedAsyncImage(
-                    url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_\(skin.num).jpg"),
-                    urlCache: URLCache.imageCache) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
-            }
-        }
-        .tintPageViewControllers(pageIndicatorColor: .gold3, currentPageIndicatorColor: .gold3)
-        .tabViewStyle(PageTabViewStyle())
-        .frame(
-            width: UIScreen.main.bounds.width ,
-            height: UIScreen.main.bounds.height / 1.75
-        )
-    }
-
     private var championInfo: some View {
         return HStack(alignment: .lastTextBaseline, spacing: 10) {
             Text(champion.name)
