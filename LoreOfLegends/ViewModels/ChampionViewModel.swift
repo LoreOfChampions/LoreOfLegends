@@ -56,7 +56,6 @@ class ChampionViewModel: ObservableObject {
         }
 
         let (data, response) = try await URLSession.shared.data(from: url)
-        try await Task.sleep(nanoseconds: NSEC_PER_SEC)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw "Unable to complete the response"
