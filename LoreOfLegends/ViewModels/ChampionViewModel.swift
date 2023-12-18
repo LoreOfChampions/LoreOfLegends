@@ -9,7 +9,6 @@ import Foundation
 
 class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
-    @Published var shouldShowGridLayout = false
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
 
