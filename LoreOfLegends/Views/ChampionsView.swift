@@ -28,17 +28,6 @@ struct ChampionsView: View {
             }
             .navigationTitle(Constants.appTitle)
             .padding(.horizontal, 19)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    SwiftUI.Image(systemName: viewModel.layoutButton)
-                        .foregroundStyle(Color.gold3)
-                        .onTapGesture {
-                            withAnimation {
-                                viewModel.shouldShowGridLayout.toggle()
-                            }
-                        }
-                }
-            }
             .scrollIndicators(.hidden)
             .background(.darkBackground)
         }
