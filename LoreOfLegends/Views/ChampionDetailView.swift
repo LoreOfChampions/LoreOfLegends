@@ -48,9 +48,15 @@ struct ChampionDetailView: View {
                 .padding(.bottom, 40)
             }
         }
-        .edgesIgnoringSafeArea(.all)
         .scrollIndicators(.hidden)
         .background(.darkBackground)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(champion.id)
+                    .opacity(visibleRatio < 0 ? 1 : 0)
+                    .foregroundStyle(.gold3)
+            }
+        }
         .task {
             do {
                 let championData = try await viewModel.fetchChampionDetails(championID: champion.id)
