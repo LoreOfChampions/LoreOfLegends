@@ -19,11 +19,7 @@ struct ChampionsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                if viewModel.shouldShowGridLayout {
-                    ChampionListView()
-                } else {
-                    ChampionGridView()
-                }
+                ChampionGridView(isLoading: $isLoading)
 
                 Text("App version: \(viewModel.version)")
                     .font(Fonts.beaufortforLolLight.withSize(11))
