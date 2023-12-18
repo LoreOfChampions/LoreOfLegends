@@ -22,7 +22,7 @@ struct ChampionGridCell: View {
             } placeholder: {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.grey6)
-                    .frame(height: 322)
+                    .frame(height: 326)
                     .opacity(0.5)
                     .overlay {
                         ProgressView()
