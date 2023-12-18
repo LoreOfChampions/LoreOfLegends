@@ -29,13 +29,6 @@ class ChampionViewModel: ObservableObject {
         }
     }
 
-    var layoutButton: String {
-        if shouldShowGridLayout {
-            return "square.grid.3x3"
-        } else {
-            return "list.bullet"
-        }
-    }
 
     var alphabeticallySortedChampions: [Champion] {
         return champions.sorted(by: { $0.id < $1.id })
