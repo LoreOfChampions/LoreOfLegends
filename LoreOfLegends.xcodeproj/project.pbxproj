@@ -38,12 +38,12 @@
 		BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2462B22672F001E5377 /* ChampionData.swift */; };
 		BD71A2492B22674B001E5377 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2482B22674B001E5377 /* Champion.swift */; };
 		BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A24A2B226782001E5377 /* ChampionsView.swift */; };
-		BD71A24D2B2267A8001E5377 /* ChampionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A24C2B2267A8001E5377 /* ChampionListView.swift */; };
 		BD71A24F2B2267CF001E5377 /* ChampionGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */; };
 		BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2502B2267F1001E5377 /* ChampionDetailView.swift */; };
 		BD71A2532B226844001E5377 /* TabView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2522B226844001E5377 /* TabView+ext.swift */; };
-		BD71A2562B22686C001E5377 /* ChampionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2552B22686C001E5377 /* ChampionListCell.swift */; };
 		BD71A2582B226873001E5377 /* ChampionGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2572B226873001E5377 /* ChampionGridCell.swift */; };
+		BD902FB82B2B76D800CE53C9 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = BD902FB72B2B76D800CE53C9 /* Shimmer */; };
+		BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,12 +77,11 @@
 		BD71A2462B22672F001E5377 /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
 		BD71A2482B22674B001E5377 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		BD71A24A2B226782001E5377 /* ChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsView.swift; sourceTree = "<group>"; };
-		BD71A24C2B2267A8001E5377 /* ChampionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionListView.swift; sourceTree = "<group>"; };
 		BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionGridView.swift; sourceTree = "<group>"; };
 		BD71A2502B2267F1001E5377 /* ChampionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailView.swift; sourceTree = "<group>"; };
 		BD71A2522B226844001E5377 /* TabView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+ext.swift"; sourceTree = "<group>"; };
-		BD71A2552B22686C001E5377 /* ChampionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionListCell.swift; sourceTree = "<group>"; };
 		BD71A2572B226873001E5377 /* ChampionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionGridCell.swift; sourceTree = "<group>"; };
+		BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD902FB82B2B76D800CE53C9 /* Shimmer in Frameworks */,
 				BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */,
 				BD71A2392B2265D5001E5377 /* CachedAsyncImage in Frameworks */,
 			);
@@ -181,7 +181,6 @@
 			children = (
 				BD71A2542B22685E001E5377 /* Cells */,
 				BD71A24A2B226782001E5377 /* ChampionsView.swift */,
-				BD71A24C2B2267A8001E5377 /* ChampionListView.swift */,
 				BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */,
 				BD71A2502B2267F1001E5377 /* ChampionDetailView.swift */,
 			);
@@ -222,8 +221,8 @@
 		BD71A2542B22685E001E5377 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BD71A2552B22686C001E5377 /* ChampionListCell.swift */,
 				BD71A2572B226873001E5377 /* ChampionGridCell.swift */,
+				BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -247,6 +246,7 @@
 			packageProductDependencies = (
 				BD71A2382B2265D5001E5377 /* CachedAsyncImage */,
 				BD3AA6E32B29F76700DFD78A /* ScrollKit */,
+				BD902FB72B2B76D800CE53C9 /* Shimmer */,
 			);
 			productName = LoreOfLegends;
 			productReference = BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */;
@@ -279,6 +279,7 @@
 			packageReferences = (
 				BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				BD3AA6E22B29F76700DFD78A /* XCRemoteSwiftPackageReference "ScrollKit" */,
+				BD902FB62B2B76D800CE53C9 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = BD71A1FE2B225E0A001E5377 /* Products */;
 			projectDirPath = "";
@@ -322,13 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD71A24D2B2267A8001E5377 /* ChampionListView.swift in Sources */,
 				BD71A24F2B2267CF001E5377 /* ChampionGridView.swift in Sources */,
 				BD71A23D2B22666C001E5377 /* Constants.swift in Sources */,
 				BD71A2452B226708001E5377 /* String+ext.swift in Sources */,
 				BD71A23F2B2266C0001E5377 /* VersionViewModel.swift in Sources */,
 				BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */,
-				BD71A2562B22686C001E5377 /* ChampionListCell.swift in Sources */,
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
@@ -339,6 +338,7 @@
 				BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */,
 				BD71A2412B2266E0001E5377 /* ChampionDetailViewModel.swift in Sources */,
 				BD71A2492B22674B001E5377 /* Champion.swift in Sources */,
+				BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +566,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		BD902FB62B2B76D800CE53C9 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +586,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD71A2372B2265D5001E5377 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		BD902FB72B2B76D800CE53C9 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD902FB62B2B76D800CE53C9 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
