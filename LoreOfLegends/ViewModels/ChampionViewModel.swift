@@ -28,9 +28,8 @@ class ChampionViewModel: ObservableObject {
         }
     }
 
-
     var alphabeticallySortedChampions: [Champion] {
-        return champions.sorted(by: { $0.id < $1.id })
+        return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
     }
 
     let version: String
