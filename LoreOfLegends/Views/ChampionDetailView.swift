@@ -75,7 +75,7 @@ struct ChampionDetailView: View {
     private var championSplashImageView: some View {
         ZStack(alignment: .bottom) {
             CachedAsyncImage(
-                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_0.jpg"),
+                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/\(champion.id)_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
