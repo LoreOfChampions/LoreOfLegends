@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
+    @State private var isLoading: Bool = false
 
     // This internal init is here to basically set the different appearance to the UINavigationBar
     internal init() {
@@ -33,12 +34,14 @@ struct ChampionsView: View {
         }
         .tint(Color.gold3)
         .task {
+            isLoading = true
             do {
+                try await Task.sleep(nanoseconds: NSEC_PER_SEC)
                 try await viewModel.getChampions()
             } catch {
                 print("Couldn't get the champions.")
             }
-
+            isLoading = false
         }
     }
 }
