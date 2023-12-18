@@ -80,8 +80,6 @@ struct ChampionDetailView: View {
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(maxWidth: .infinity)
-                        .clipped()
                 } placeholder: {
                     ProgressView()
                 }
