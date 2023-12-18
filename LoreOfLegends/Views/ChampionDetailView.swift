@@ -31,13 +31,9 @@ struct ChampionDetailView: View {
     var body: some View {
         ScrollViewWithStickyHeader(header: {
             ZStack {
-                if visibleRatio > 0 {
-                    championSplashImageView
-                        .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .top)))
-                } else {
-                    Color.darkBackground
-                        .transition(.asymmetric(insertion: .move(edge: .top), removal: .opacity))
-                }
+                championSplashImageView
+                Color.darkBackground
+                    .opacity(-visibleRatio * 4 + 1)
             }
         }, headerHeight: 400) { offset, headerVisibleRatio in
             handleOffset(offset, visibleHeaderRatio: headerVisibleRatio)
@@ -94,11 +90,13 @@ struct ChampionDetailView: View {
             Text(champion.name)
                 .font(Fonts.beaufortforLolBold.withSize(52))
                 .foregroundStyle(.gold2)
+                .opacity(visibleRatio * 5)
 
             HStack(spacing: 0) {
                 Text("(\(champion.formattedTag))")
                     .font(Fonts.beaufortforLolBold.withSize(15))
                     .foregroundStyle(.gold2)
+                    .opacity(visibleRatio * 5)
             }
             .padding(.bottom)
         }
