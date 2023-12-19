@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
+		BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */; };
 		BD6DD1682B27019E001ADBB4 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD15E2B27019E001ADBB4 /* BeaufortforLOL-Medium.otf */; };
 		BD6DD1692B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD15F2B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf */; };
 		BD6DD16A2B27019E001ADBB4 /* BeaufortforLOL-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD1602B27019E001ADBB4 /* BeaufortforLOL-MediumItalic.otf */; };
@@ -44,9 +45,11 @@
 		BD71A2582B226873001E5377 /* ChampionGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2572B226873001E5377 /* ChampionGridCell.swift */; };
 		BD902FB82B2B76D800CE53C9 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = BD902FB72B2B76D800CE53C9 /* Shimmer */; };
 		BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */; };
+		BDCB4D222B319D1D00FCBA4F /* LOLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCB4D212B319D1D00FCBA4F /* LOLError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD6DD15E2B27019E001ADBB4 /* BeaufortforLOL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Medium.otf"; sourceTree = "<group>"; };
 		BD6DD15F2B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-BoldItalic.otf"; sourceTree = "<group>"; };
 		BD6DD1602B27019E001ADBB4 /* BeaufortforLOL-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-MediumItalic.otf"; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		BD71A2522B226844001E5377 /* TabView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabView+ext.swift"; sourceTree = "<group>"; };
 		BD71A2572B226873001E5377 /* ChampionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionGridCell.swift; sourceTree = "<group>"; };
 		BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
+		BDCB4D212B319D1D00FCBA4F /* LOLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 				BD71A2112B226107001E5377 /* Fonts */,
 				BD71A2042B225E0B001E5377 /* Assets.xcassets */,
 				BD71A2062B225E0B001E5377 /* Preview Content */,
+				BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */,
 			);
 			path = LoreOfLegends;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				BD71A2462B22672F001E5377 /* ChampionData.swift */,
 				BD71A2482B22674B001E5377 /* Champion.swift */,
+				BDCB4D212B319D1D00FCBA4F /* LOLError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				BD6DD16C2B27019E001ADBB4 /* BeaufortforLOL-HeavyItalic.otf in Resources */,
 				BD6DD1702B27019E001ADBB4 /* BeaufortforLOL-Light.otf in Resources */,
 				BD6DD1692B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf in Resources */,
+				BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */,
 				BD6DD1792B2701A4001ADBB4 /* Spiegel-BoldItalic.otf in Resources */,
 				BD6DD16F2B27019E001ADBB4 /* BeaufortforLOL-Bold.otf in Resources */,
 				BD6DD17E2B2701A4001ADBB4 /* Spiegel-Regular.otf in Resources */,
@@ -334,6 +341,7 @@
 				BD71A2532B226844001E5377 /* TabView+ext.swift in Sources */,
 				BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */,
 				BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */,
+				BDCB4D222B319D1D00FCBA4F /* LOLError.swift in Sources */,
 				BD71A2582B226873001E5377 /* ChampionGridCell.swift in Sources */,
 				BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */,
 				BD71A2412B2266E0001E5377 /* ChampionDetailViewModel.swift in Sources */,
@@ -480,6 +488,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,6 +523,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
