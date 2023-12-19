@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Constants {
-    static let appTitle = "Lore of League"
+    static let appTitle = "Lore of Legends"
     static let darkBlueGradient: Gradient = Gradient(colors: [.blue6, .blue7])
     static let goldGradient: Gradient = Gradient(colors: [.gold5, .gold4])
     static let blueGradient: Gradient = Gradient(colors: [.blue4, .blue2])
