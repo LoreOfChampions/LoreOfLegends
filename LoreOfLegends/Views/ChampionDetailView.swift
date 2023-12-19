@@ -8,6 +8,7 @@
 import SwiftUI
 import CachedAsyncImage
 import ScrollKit
+import Shimmer
 
 struct ChampionDetailView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel
@@ -85,7 +86,7 @@ struct ChampionDetailView: View {
                 }
 
             LinearGradient(colors: [.clear, .darkBackground], startPoint: .top, endPoint: .bottom)
-                .frame(height: 150)
+                .frame(height: 100)
         }
     }
 
@@ -108,35 +109,36 @@ struct ChampionDetailView: View {
 
     private var championLore: some View {
         return Group {
-            Text("Lore:")
+            Label("Lore", systemImage: "book.fill")
                 .font(Fonts.beaufortforLolBold.withSize(40))
                 .foregroundStyle(.gold2)
 
             VStack(spacing: 10) {
-                Text(lore)
-                    .font(Fonts.beaufortforLolBold.withSize(18))
-                    .lineLimit(showFullLoreText ? nil : 5)
-                    .foregroundStyle(.gold1)
-
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        showFullLoreText.toggle()
-                    }) {
-                        Text(showFullLoreText ? "Show Less" : "Show More")
-                            .font(Fonts.beaufortforLolBold.withSize(18))
-                            .foregroundStyle(.gold3)
-                    }
-                    .padding(.trailing)
+                if lore.isEmpty {
+                    Text(Constants.sampleParagraph)
+                        .font(Fonts.beaufortforLolBold.withSize(18))
+                        .lineLimit(showFullLoreText ? nil : 5)
+                        .foregroundStyle(.gold1)
+                        .redacted(reason: .placeholder)
+                        .shimmering()
+                } else {
+                    Text(lore)
+                        .font(Fonts.beaufortforLolBold.withSize(18))
+                        .lineLimit(showFullLoreText ? nil : 5)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .foregroundStyle(.gold1)
                 }
             }
-            .padding(.bottom, 20)
+            .onTapGesture {
+                showFullLoreText.toggle()
+            }
+            .padding(.bottom)
         }
     }
 
     private var championSpells: some View {
-        return VStack(alignment: .leading) {
-            Text("Spells:")
+        return VStack(alignment: .leading, spacing: 0) {
+            Label("Spells", systemImage: "wand.and.stars")
                 .font(Fonts.beaufortforLolBold.withSize(40))
                 .foregroundStyle(.gold2)
 
@@ -165,8 +167,7 @@ struct ChampionDetailView: View {
                             .foregroundStyle(.gold3)
 
                         Text("(Passive)")
-                            .font(Fonts.beaufortforLolBold.withSize(16))
-                            .multilineTextAlignment(.leading)
+                            .font(Fonts.beaufortforLolBold.withSize(14))
                             .foregroundStyle(.gold3)
                     }
                 }
