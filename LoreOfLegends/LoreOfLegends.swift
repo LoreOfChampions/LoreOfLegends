@@ -22,9 +22,9 @@ struct LoreOfLegends: App {
                     ChampionsView()
                         .environmentObject(ChampionViewModel(version: version))
                         .environmentObject(ChampionDetailViewModel(version: version))
-                        .preferredColorScheme(.dark)
                 }
             }
+            .preferredColorScheme(.dark)
             .task {
                 do {
                     version = try await VersionViewModel.fetchLatestVersion()
