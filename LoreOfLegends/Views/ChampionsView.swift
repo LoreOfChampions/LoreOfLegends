@@ -39,7 +39,7 @@ struct ChampionsView: View {
                 try await Task.sleep(nanoseconds: NSEC_PER_SEC)
                 try await viewModel.getChampions()
             } catch {
-                print("Couldn't get the champions.")
+                print(LOLError.unableToDecodeData)
             }
             isLoading = false
         }

@@ -19,14 +19,14 @@ class ChampionDetailViewModel: ObservableObject {
         let endpoint = Constants.buildURLEndpointString(version: self.version, championID: "/" + championID)
 
         guard let url = URL(string: endpoint) else {
-            throw "Invalid URL"
+            throw LOLError.invalidURL
         }
 
         let (data, response) = try await URLSession.shared.data(from: url)
         try await Task.sleep(nanoseconds: NSEC_PER_SEC)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw "Unable to complete the response"
+            throw LOLError.unableToComplete
         }
 
         let decoder = JSONDecoder()

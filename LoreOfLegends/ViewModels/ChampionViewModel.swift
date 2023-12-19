@@ -43,13 +43,13 @@ class ChampionViewModel: ObservableObject {
         let endpoint = Constants.buildURLEndpointString(version: self.version)
 
         guard let url = URL(string: endpoint) else {
-            throw "Invalid URL"
+            throw LOLError.invalidURL
         }
 
         let (data, response) = try await URLSession.shared.data(from: url)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw "Unable to complete the response"
+            throw LOLError.unableToComplete
         }
 
         let decoder = JSONDecoder()
