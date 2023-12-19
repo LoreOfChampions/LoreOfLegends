@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CachedAsyncImage
+import Shimmer
 
 struct ChampionGridCell: View {
 
@@ -25,8 +26,10 @@ struct ChampionGridCell: View {
                     .frame(height: 326)
                     .opacity(0.5)
                     .overlay {
-                        ProgressView()
-                            .tint(Color.gold3)
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.grey4)
+                            .frame(height: 326)
+                            .shimmering()
                     }
             }
             .padding(.leading, -6)
