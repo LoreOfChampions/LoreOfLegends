@@ -16,7 +16,7 @@ struct ChampionDetailView: View {
 
     @State private var spells: [Champion.Spell] = []
     @State private var skins: [Champion.Skin] = []
-    @State private var lore = ""
+    @State private var lore: String = ""
     @State private var passive: Champion.Passive = Champion.Passive(name: "", description: "", image: Champion.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0))
 
     @State private var offset = CGPoint.zero
@@ -67,7 +67,7 @@ struct ChampionDetailView: View {
                     passive = championDetails.passive ?? .init(name: "", description: "", image: Champion.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 48, h: 48))
                 }
             } catch {
-                print(error)
+                print(LOLError.unableToDecodeData)
             }
         }
     }
@@ -112,7 +112,7 @@ struct ChampionDetailView: View {
                 .font(Fonts.beaufortforLolBold.withSize(40))
                 .foregroundStyle(.gold2)
 
-            VStack {
+            VStack(spacing: 10) {
                 Text(lore)
                     .font(Fonts.beaufortforLolBold.withSize(18))
                     .lineLimit(showFullLoreText ? nil : 5)
@@ -121,9 +121,7 @@ struct ChampionDetailView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        withAnimation {
-                            showFullLoreText.toggle()
-                        }
+                        showFullLoreText.toggle()
                     }) {
                         Text(showFullLoreText ? "Show Less" : "Show More")
                             .font(Fonts.beaufortforLolBold.withSize(18))
@@ -144,7 +142,7 @@ struct ChampionDetailView: View {
 
             HStack(spacing: 10) {
                 CachedAsyncImage(
-                    url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.23.1/img/passive/\(passive.image.full)"),
+                    url: URL(string: "https://ddragon.leagueoflegends.com/cdn/\(viewModel.version)/img/passive/\(passive.image.full)"),
                     urlCache: URLCache.imageCache) { image in
                         image
                             .resizable()
@@ -155,34 +153,29 @@ struct ChampionDetailView: View {
                         ProgressView()
                     }
 
-                VStack(alignment: .leading) {
+                DisclosureGroup {
+                    Text(passive.removeHtmlTags(from: passive.description))
+                        .font(Fonts.beaufortforLolBold.withSize(12))
+                        .foregroundStyle(.gold1)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                } label: {
                     HStack {
                         Text(passive.name)
                             .font(Fonts.beaufortforLolBold.withSize(20))
                             .foregroundStyle(.gold3)
+
                         Text("(Passive)")
                             .font(Fonts.beaufortforLolBold.withSize(16))
+                            .multilineTextAlignment(.leading)
                             .foregroundStyle(.gold3)
                     }
-                    Text(passive.removeHtmlTags(from: passive.description))
-                        .font(Fonts.beaufortforLolBold.withSize(12))
-                        .lineLimit(showFullSpellDescription ? nil : 2)
-                        .foregroundStyle(.gold1)
                 }
             }
-            .onTapGesture {
-                withAnimation {
-                    showFullSpellDescription.toggle()
-                }
-            }
-            .padding()
-            .background(Color.grey1.opacity(0.2))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
 
             ForEach(spells) { spell in
                 HStack(spacing: 10) {
                     CachedAsyncImage(
-                        url: URL(string: "https://ddragon.leagueoflegends.com/cdn/13.23.1/img/spell/\(spell.id).png"),
+                        url: URL(string: "https://ddragon.leagueoflegends.com/cdn/\(viewModel.version)/img/spell/\(spell.id).png"),
                         urlCache: URLCache.imageCache) { image in
                             image
                                 .resizable()
@@ -193,24 +186,17 @@ struct ChampionDetailView: View {
                             ProgressView()
                         }
 
-                    VStack(alignment: .leading) {
+                    DisclosureGroup {
+                        Text(spell.description)
+                            .font(Fonts.beaufortforLolBold.withSize(12))
+                            .foregroundStyle(.gold1)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    } label: {
                         Text(spell.name)
                             .font(Fonts.beaufortforLolBold.withSize(20))
                             .foregroundStyle(.gold3)
-                        Text(spell.description)
-                            .font(Fonts.beaufortforLolBold.withSize(12))
-                            .lineLimit(showFullSpellDescription ? nil : 2)
-                            .foregroundStyle(.gold1)
                     }
                 }
-                .onTapGesture {
-                    withAnimation {
-                        showFullSpellDescription.toggle()
-                    }
-                }
-                .padding()
-                .background(Color.grey1.opacity(0.2))
-                .clipShape(RoundedRectangle(cornerRadius: 15))
             }
         }
     }
