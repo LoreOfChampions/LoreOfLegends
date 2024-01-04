@@ -110,25 +110,30 @@ struct ChampionDetailView: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 0) {
                     ForEach(skins, id: \.id) { skin in
-                        CachedAsyncImage(
-                            url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_\(skin.num).jpg"),
-                            urlCache: URLCache.imageCache) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                                    .padding(.horizontal, 5)
-                                    .containerRelativeFrame(.horizontal)
-                            } placeholder: {
-                                ProgressView()
-                            }
+                        VStack {
+                            CachedAsyncImage(
+                                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_\(skin.num).jpg"),
+                                urlCache: URLCache.imageCache) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                                        .padding(.horizontal, 5)
+                                        .containerRelativeFrame(.horizontal)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+
+                            Text(skin.name == "default" ? champion.id : skin.name)
+                                .font(Fonts.beaufortforLolBold.withSize(15))
+                                .foregroundStyle(.gold2)
+                        }
                     }
                 }
                 .scrollTargetLayout()
             }
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
-            .frame(height: 220)
             .safeAreaPadding(.horizontal)
         }
     }
