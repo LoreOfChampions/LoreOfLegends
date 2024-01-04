@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChampionViewModel: ObservableObject {
+@MainActor class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
