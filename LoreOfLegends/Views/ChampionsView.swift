@@ -34,14 +34,11 @@ struct ChampionsView: View {
         }
         .tint(Color.gold3)
         .task {
-            isLoading = true
             do {
-                try await Task.sleep(nanoseconds: NSEC_PER_SEC)
                 try await viewModel.getChampions()
             } catch {
                 print(LOLError.unableToDecodeData)
             }
-            isLoading = false
         }
     }
 }
