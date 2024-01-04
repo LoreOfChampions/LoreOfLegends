@@ -10,8 +10,6 @@ import SwiftUI
 struct AlphabeticallySortedChampionsView: View {
     @EnvironmentObject var viewModel: ChampionViewModel
 
-    @Binding var isLoadingMoreChampions: Bool
-
     let champion: Champion = Champion.exampleChampion
 
     var body: some View {
@@ -32,5 +30,5 @@ struct AlphabeticallySortedChampionsView: View {
 }
 
 #Preview {
-    AlphabeticallySortedChampionsView(isLoadingMoreChampions: .constant(false))
+    AlphabeticallySortedChampionsView()
 }
