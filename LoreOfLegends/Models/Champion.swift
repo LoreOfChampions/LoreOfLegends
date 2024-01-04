@@ -63,6 +63,14 @@ struct Champion: Codable, Identifiable, Hashable {
         let id: String
         let name: String
         let description: String
+
+        var formattedSpellDescription: String {
+            var result = self.description
+
+            result = result.replacingOccurrences(of: "<[^>]+>", with: " ", options: .regularExpression, range: nil)
+
+            return result
+        }
     }
 
     struct Passive: Codable {
@@ -70,22 +78,10 @@ struct Champion: Codable, Identifiable, Hashable {
         let description: String
         let image: Champion.Image
 
-        var formattedDescription: String {
+        var formattedPassiveDescription: String {
             var result = self.description
 
             result = result.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-
-            return result
-        }
-
-        func removeHtmlTags(from text: String) -> String {
-            var result = text
-
-            // Remove explicit <br><br>
-            result = result.replacingOccurrences(of: "<br><br>", with: "")
-
-            // Remove anything between < and > (including < and >) with optional spaces and line breaks
-            result = result.replacingOccurrences(of: "<\\s*[^>]+\\s*>", with: "", options: .regularExpression, range: nil)
 
             return result
         }
