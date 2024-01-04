@@ -116,6 +116,7 @@ struct ChampionDetailView: View {
                             urlCache: URLCache.imageCache) { image in
                                 image
                                     .resizable()
+                                    .scaledToFit()
                                     .clipShape(RoundedRectangle(cornerRadius: 25))
                                     .padding(.horizontal, 5)
                                     .containerRelativeFrame(.horizontal)
