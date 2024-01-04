@@ -19,7 +19,6 @@ struct AlphabeticallySortedChampionsView: View {
             } label: {
                 ChampionGridCell(champion: champion)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
                 if index == viewModel.alphabeticallySortedChampions.lastIndex(of: champion) {
                     viewModel.currentPage += 1
