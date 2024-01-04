@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */; };
 		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
 		BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */; };
 		BD6DD1682B27019E001ADBB4 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD6DD15E2B27019E001ADBB4 /* BeaufortforLOL-Medium.otf */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleLabelStyle.swift; sourceTree = "<group>"; };
 		BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD6DD15E2B27019E001ADBB4 /* BeaufortforLOL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Medium.otf"; sourceTree = "<group>"; };
 		BD6DD15F2B27019E001ADBB4 /* BeaufortforLOL-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				BD71A23C2B22666C001E5377 /* Constants.swift */,
 				BD71A2442B226708001E5377 /* String+ext.swift */,
 				BD71A2522B226844001E5377 /* TabView+ext.swift */,
+				BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				BDCDC1432B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift in Sources */,
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */,
+				BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
 				BD71A2532B226844001E5377 /* TabView+ext.swift in Sources */,
 				BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */,

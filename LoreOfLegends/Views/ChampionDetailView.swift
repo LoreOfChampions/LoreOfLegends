@@ -105,8 +105,7 @@ struct ChampionDetailView: View {
     private var championSkinView: some View {
         VStack(alignment: .leading, spacing: 0) {
             Label("Skins", systemImage: "person.and.person.fill")
-                .font(Fonts.beaufortforLolBold.withSize(40))
-                .foregroundStyle(.gold2)
+                .detailTitleLabelStyle()
 
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 0) {
@@ -154,8 +153,7 @@ struct ChampionDetailView: View {
     private var championLore: some View {
         return Group {
             Label("Lore", systemImage: "book.fill")
-                .font(Fonts.beaufortforLolBold.withSize(40))
-                .foregroundStyle(.gold2)
+                .detailTitleLabelStyle()
 
             VStack(spacing: 10) {
                 if lore.isEmpty {
@@ -183,8 +181,7 @@ struct ChampionDetailView: View {
     private var championSpells: some View {
         return VStack(alignment: .leading, spacing: 0) {
             Label("Spells", systemImage: "wand.and.stars")
-                .font(Fonts.beaufortforLolBold.withSize(40))
-                .foregroundStyle(.gold2)
+                .detailTitleLabelStyle()
 
             HStack(spacing: 10) {
                 CachedAsyncImage(
