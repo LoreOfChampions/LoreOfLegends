@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct Champion: Codable, Identifiable {
+struct Champion: Codable, Identifiable, Hashable {
+    static func == (lhs: Champion, rhs: Champion) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
     let version: String?
     let id, key, name, title: String
     let blurb: String
