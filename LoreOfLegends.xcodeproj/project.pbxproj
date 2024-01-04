@@ -46,6 +46,8 @@
 		BD902FB82B2B76D800CE53C9 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = BD902FB72B2B76D800CE53C9 /* Shimmer */; };
 		BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */; };
 		BDCB4D222B319D1D00FCBA4F /* LOLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCB4D212B319D1D00FCBA4F /* LOLError.swift */; };
+		BDCDC1432B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */; };
+		BDCDC1452B31E09B00472E2F /* SearchedChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		BD71A2572B226873001E5377 /* ChampionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionGridCell.swift; sourceTree = "<group>"; };
 		BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		BDCB4D212B319D1D00FCBA4F /* LOLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLError.swift; sourceTree = "<group>"; };
+		BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticallySortedChampionsView.swift; sourceTree = "<group>"; };
+		BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedChampionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 				BD71A24A2B226782001E5377 /* ChampionsView.swift */,
 				BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */,
 				BD71A2502B2267F1001E5377 /* ChampionDetailView.swift */,
+				BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */,
+				BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,12 +341,14 @@
 				BD71A2452B226708001E5377 /* String+ext.swift in Sources */,
 				BD71A23F2B2266C0001E5377 /* VersionViewModel.swift in Sources */,
 				BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */,
+				BDCDC1432B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift in Sources */,
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
 				BD71A2532B226844001E5377 /* TabView+ext.swift in Sources */,
 				BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */,
 				BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */,
+				BDCDC1452B31E09B00472E2F /* SearchedChampionView.swift in Sources */,
 				BDCB4D222B319D1D00FCBA4F /* LOLError.swift in Sources */,
 				BD71A2582B226873001E5377 /* ChampionGridCell.swift in Sources */,
 				BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */,
