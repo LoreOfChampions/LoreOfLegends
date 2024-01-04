@@ -202,7 +202,7 @@ struct ChampionDetailView: View {
                     }
 
                 DisclosureGroup {
-                    Text(passive.removeHtmlTags(from: passive.description))
+                    Text(passive.formattedPassiveDescription)
                         .font(Fonts.beaufortforLolBold.withSize(12))
                         .foregroundStyle(.gold1)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -234,7 +234,7 @@ struct ChampionDetailView: View {
                         }
 
                     DisclosureGroup {
-                        Text(spell.description)
+                        Text(spell.formattedSpellDescription)
                             .font(Fonts.beaufortforLolBold.withSize(12))
                             .foregroundStyle(.gold1)
                             .frame(maxWidth: .infinity, alignment: .leading)
