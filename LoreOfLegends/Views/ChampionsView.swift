@@ -35,11 +35,13 @@ struct ChampionsView: View {
         }
         .tint(Color.gold3)
         .task {
+            isLoading = true
             do {
                 try await viewModel.getChampions()
             } catch {
                 print(LOLError.unableToDecodeData)
             }
+            isLoading = false
         }
     }
 }
