@@ -28,6 +28,7 @@ struct ChampionsView: View {
                     .padding(.vertical)
             }
             .navigationTitle(Constants.appTitle)
+            .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
             .padding(.horizontal, 19)
             .scrollIndicators(.hidden)
             .background(.darkBackground)
