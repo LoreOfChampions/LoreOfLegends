@@ -44,6 +44,7 @@ struct ChampionDetailView: View {
                     championInfo
                     championLore
                     championSpells
+                    championSkinView
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 40)
@@ -87,6 +88,35 @@ struct ChampionDetailView: View {
 
             LinearGradient(colors: [.clear, .darkBackground], startPoint: .top, endPoint: .bottom)
                 .frame(height: 100)
+        }
+    }
+
+    private var championSkinView: some View {
+        Group {
+            Label("Skins", systemImage: "repeat")
+                .font(Fonts.beaufortforLolBold.withSize(40))
+                .foregroundStyle(.gold2)
+            
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 0) {
+                    ForEach(skins, id: \.id) { skin in
+                        CachedAsyncImage(
+                            url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_\(skin.num).jpg"),
+                            urlCache: URLCache.imageCache) { image in
+                                image
+                                    .resizable()
+                                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                                    .containerRelativeFrame(.horizontal)
+                                    .frame(height: 220)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                    }
+                }
+            }
+            .scrollTargetBehavior(.paging)
+            .scrollIndicators(.hidden)
+            .frame(height: 220)
         }
     }
 
