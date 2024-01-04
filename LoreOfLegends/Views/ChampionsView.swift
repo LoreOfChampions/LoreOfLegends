@@ -18,7 +18,7 @@ struct ChampionsView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 ChampionGridView(isLoading: $isLoading)
 
