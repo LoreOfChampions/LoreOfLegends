@@ -12,6 +12,7 @@ import Shimmer
 
 struct ChampionDetailView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var showFullLoreText: Bool = false
     @State private var showFullSpellDescription: Bool = false
 
@@ -43,20 +44,30 @@ struct ChampionDetailView: View {
                 VStack(alignment: .leading) {
                     championInfo
                     championLore
-                    championSpells
                     championSkinView
+                    championSpells
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 40)
             }
         }
         .scrollIndicators(.hidden)
+        .navigationBarBackButtonHidden()
         .background(.darkBackground)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text(champion.id)
                     .opacity(visibleRatio < 0 ? 1 : 0)
                     .foregroundStyle(.gold3)
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .foregroundStyle(.gold3)
+                }
             }
         }
         .task {
@@ -92,11 +103,11 @@ struct ChampionDetailView: View {
     }
 
     private var championSkinView: some View {
-        Group {
-            Label("Skins", systemImage: "repeat")
+        VStack(alignment: .leading, spacing: 0) {
+            Label("Skins", systemImage: "person.and.person.fill")
                 .font(Fonts.beaufortforLolBold.withSize(40))
                 .foregroundStyle(.gold2)
-            
+
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 0) {
                     ForEach(skins, id: \.id) { skin in
@@ -106,17 +117,19 @@ struct ChampionDetailView: View {
                                 image
                                     .resizable()
                                     .clipShape(RoundedRectangle(cornerRadius: 25))
+                                    .padding(.horizontal, 5)
                                     .containerRelativeFrame(.horizontal)
-                                    .frame(height: 220)
-                        } placeholder: {
-                            ProgressView()
-                        }
+                            } placeholder: {
+                                ProgressView()
+                            }
                     }
                 }
+                .scrollTargetLayout()
             }
-            .scrollTargetBehavior(.paging)
+            .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
             .frame(height: 220)
+            .safeAreaPadding(.horizontal)
         }
     }
 
@@ -235,6 +248,17 @@ struct ChampionDetailView: View {
     private func handleOffset(_ scrollOffset: CGPoint, visibleHeaderRatio: CGFloat) {
         self.offset = scrollOffset
         self.visibleRatio = visibleHeaderRatio
+    }
+}
+
+extension UINavigationController: UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
     }
 }
 
