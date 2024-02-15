@@ -70,7 +70,7 @@
 		BD6DD1762B2701A4001ADBB4 /* Spiegel-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-SemiBold.otf"; sourceTree = "<group>"; };
 		BD6DD1772B2701A4001ADBB4 /* Spiegel-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		BD6DD1782B2701A4001ADBB4 /* Spiegel-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spiegel-Regular.otf"; sourceTree = "<group>"; };
-		BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD71A1FD2B225E0A001E5377 /* LegendsAndLore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LegendsAndLore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		BD71A1FE2B225E0A001E5377 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */,
+				BD71A1FD2B225E0A001E5377 /* LegendsAndLore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,9 +245,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD71A1FC2B225E0A001E5377 /* LoreOfLegends */ = {
+		BD71A1FC2B225E0A001E5377 /* LegendsAndLore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD71A20B2B225E0B001E5377 /* Build configuration list for PBXNativeTarget "LoreOfLegends" */;
+			buildConfigurationList = BD71A20B2B225E0B001E5377 /* Build configuration list for PBXNativeTarget "LegendsAndLore" */;
 			buildPhases = (
 				BD71A1F92B225E0A001E5377 /* Sources */,
 				BD71A1FA2B225E0A001E5377 /* Frameworks */,
@@ -257,14 +257,14 @@
 			);
 			dependencies = (
 			);
-			name = LoreOfLegends;
+			name = LegendsAndLore;
 			packageProductDependencies = (
 				BD71A2382B2265D5001E5377 /* CachedAsyncImage */,
 				BD3AA6E32B29F76700DFD78A /* ScrollKit */,
 				BD902FB72B2B76D800CE53C9 /* Shimmer */,
 			);
 			productName = LoreOfLegends;
-			productReference = BD71A1FD2B225E0A001E5377 /* LoreOfLegends.app */;
+			productReference = BD71A1FD2B225E0A001E5377 /* LegendsAndLore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -282,7 +282,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD71A1F82B225E0A001E5377 /* Build configuration list for PBXProject "LoreOfLegends" */;
+			buildConfigurationList = BD71A1F82B225E0A001E5377 /* Build configuration list for PBXProject "LegendsAndLore" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -300,7 +300,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD71A1FC2B225E0A001E5377 /* LoreOfLegends */,
+				BD71A1FC2B225E0A001E5377 /* LegendsAndLore */,
 			);
 		};
 /* End PBXProject section */
@@ -557,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD71A1F82B225E0A001E5377 /* Build configuration list for PBXProject "LoreOfLegends" */ = {
+		BD71A1F82B225E0A001E5377 /* Build configuration list for PBXProject "LegendsAndLore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD71A2092B225E0B001E5377 /* Debug */,
@@ -566,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD71A20B2B225E0B001E5377 /* Build configuration list for PBXNativeTarget "LoreOfLegends" */ = {
+		BD71A20B2B225E0B001E5377 /* Build configuration list for PBXNativeTarget "LegendsAndLore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD71A20C2B225E0B001E5377 /* Debug */,
