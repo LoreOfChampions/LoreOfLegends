@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD71A1FC2B225E0A001E5377"
-               BuildableName = "LegendsAndLore.app"
-               BlueprintName = "LegendsAndLore"
-               ReferencedContainer = "container:LegendsAndLore.xcodeproj">
+               BuildableName = "LoreOfChampions.app"
+               BlueprintName = "LoreOfChampions"
+               ReferencedContainer = "container:LoreOfChampions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD71A1FC2B225E0A001E5377"
-            BuildableName = "LegendsAndLore.app"
-            BlueprintName = "LegendsAndLore"
-            ReferencedContainer = "container:LegendsAndLore.xcodeproj">
+            BuildableName = "LoreOfChampions.app"
+            BlueprintName = "LoreOfChampions"
+            ReferencedContainer = "container:LoreOfChampions.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD71A1FC2B225E0A001E5377"
-            BuildableName = "LegendsAndLore.app"
-            BlueprintName = "LegendsAndLore"
-            ReferencedContainer = "container:LegendsAndLore.xcodeproj">
+            BuildableName = "LoreOfChampions.app"
+            BlueprintName = "LoreOfChampions"
+            ReferencedContainer = "container:LoreOfChampions.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
