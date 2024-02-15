@@ -152,7 +152,7 @@ struct ChampionDetailView: View {
                         .frame(width: 40, height: 40)
                 }
             }
-            .padding(.bottom)
+            .opacity(visibleRatio * 5)
         }
     }
 
