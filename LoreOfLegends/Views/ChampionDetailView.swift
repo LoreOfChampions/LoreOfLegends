@@ -139,7 +139,7 @@ struct ChampionDetailView: View {
     }
 
     private var championInfo: some View {
-        return HStack(alignment: .lastTextBaseline, spacing: 10) {
+        return HStack(alignment: .center, spacing: 10) {
             Text(champion.name)
                 .font(Fonts.beaufortforLolBold.withSize(52))
                 .foregroundStyle(.gold2)
