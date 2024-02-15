@@ -162,23 +162,49 @@ struct ChampionDetailView: View {
                 .detailTitleLabelStyle()
 
             VStack(spacing: 10) {
-                if lore.isEmpty {
-                    Text(Constants.sampleParagraph)
-                        .font(Fonts.beaufortforLolBold.withSize(18))
-                        .lineLimit(showFullLoreText ? nil : 5)
-                        .foregroundStyle(.gold1)
-                        .redacted(reason: .placeholder)
-                        .shimmering()
-                } else {
-                    Text(lore)
-                        .font(Fonts.beaufortforLolBold.withSize(18))
-                        .lineLimit(showFullLoreText ? nil : 5)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .foregroundStyle(.gold1)
+                VStack {
+                    if lore.isEmpty {
+                        Text(Constants.sampleParagraph)
+                            .font(Fonts.beaufortforLolBold.withSize(18))
+                            .foregroundStyle(.gold1)
+                            .redacted(reason: .placeholder)
+                            .shimmering()
+                    } else {
+                        Text(lore)
+                            .font(Fonts.beaufortforLolBold.withSize(18))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .foregroundStyle(.gold1)
+                    }
                 }
-            }
-            .onTapGesture {
-                showFullLoreText.toggle()
+                .overlay {
+                    withAnimation(.easeInOut) {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .darkBackground, location: 0),
+                                .init(color: .darkBackground, location: 0.25),
+                                .init(color: .clear, location: 1)
+                            ],
+                            startPoint: .bottom,
+                            endPoint: .top
+                        )
+                        .opacity(showFullLoreText ? 0 : 1)
+                    }
+                }
+
+                if !lore.isEmpty {
+                    withAnimation(.easeInOut) {
+                        Button {
+                            withAnimation(.spring) {
+                                showFullLoreText.toggle()
+                            }
+                        } label: {
+                            Text(showFullLoreText ? "Read less" : "Read more...")
+                                .font(Fonts.beaufortforLolBold.withSize(18))
+                                .foregroundStyle(.gold2)
+                        }
+                        .offset(y: showFullLoreText ? 0 : -50)
+                    }
+                }
             }
             .padding(.bottom)
         }
