@@ -40,7 +40,7 @@ struct ChampionDetailView: View {
         }, headerHeight: 400) { offset, headerVisibleRatio in
             handleOffset(offset, visibleHeaderRatio: headerVisibleRatio)
         } content: {
-            VStack(spacing: 0) {
+            VStack(spacing: 10) {
                 VStack(alignment: .leading) {
                     championInfo
                     championLore
