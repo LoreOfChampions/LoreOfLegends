@@ -145,11 +145,12 @@ struct ChampionDetailView: View {
                 .foregroundStyle(.gold2)
                 .opacity(visibleRatio * 5)
 
-            HStack(spacing: 0) {
-                Text("(\(champion.formattedTag))")
-                    .font(Fonts.beaufortforLolBold.withSize(15))
-                    .foregroundStyle(.gold2)
-                    .opacity(visibleRatio * 5)
+            HStack(spacing: 5) {
+                ForEach(champion.tags, id: \.self) { tag in
+                    Image(setRoleIcon(for: tag))
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
             }
             .padding(.bottom)
         }
