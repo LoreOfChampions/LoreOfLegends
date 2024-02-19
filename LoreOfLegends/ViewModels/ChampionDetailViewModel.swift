@@ -34,4 +34,22 @@ class ChampionDetailViewModel: ObservableObject {
 
         return championDetails
     }
+
+    func setRoleIcon(for tag: String) -> String {
+        if tag == "Assassin" {
+            return "assasinIcon"
+        } else if tag == "Fighter" {
+            return "fighterIcon"
+        } else if tag == "Mage" {
+            return "mageIcon"
+        } else if tag == "Marksman" {
+            return "marksmanIcon"
+        } else if tag == "Support" {
+            return "supportIcon"
+        } else if tag == "Tank" {
+            return "tankIcon"
+        } else {
+            return ""
+        }
+    }
 }
