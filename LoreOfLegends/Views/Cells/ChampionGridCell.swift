@@ -35,13 +35,11 @@ struct ChampionGridCell: View {
             .padding(.leading, -6)
 
             Text(champion.name)
-                .font(Fonts.beaufortforLolBold.withSize(23))
-                .foregroundStyle(.gold2)
+                .detailLabelStyle(fontSize: 26, color: .gold2)
 
             HStack(spacing: 0) {
                 Text(champion.formattedTag)
-                    .font(Fonts.beaufortforLolBold.withSize(11))
-                    .foregroundStyle(.gold1)
+                    .detailLabelStyle(fontSize: 14, color: .gold1)
             }
         }
     }

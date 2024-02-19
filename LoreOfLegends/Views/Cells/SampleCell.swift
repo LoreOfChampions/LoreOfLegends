@@ -16,13 +16,11 @@ struct SampleCell: View {
                 .frame(height: 326)
 
             Text("champion.id")
-                .font(Fonts.beaufortforLolBold.withSize(23))
-                .foregroundStyle(.gold2)
+                .detailLabelStyle(fontSize: 23, color: .gold2)
 
             HStack(spacing: 0) {
                 Text("champion.formattedTag")
-                    .font(Fonts.beaufortforLolBold.withSize(11))
-                    .foregroundStyle(.gold1)
+                    .detailLabelStyle(fontSize: 11, color: .gold1)
             }
         }
     }
