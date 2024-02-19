@@ -33,7 +33,7 @@ struct ChampionDetailView: View {
     var body: some View {
         ScrollViewWithStickyHeader(header: {
             ZStack {
-                championSplashImageView
+                ChampionSplashImageView(champion: champion)
                 Color.darkBackground
                     .opacity(-visibleRatio * 4 + 1)
             }
@@ -42,10 +42,10 @@ struct ChampionDetailView: View {
         } content: {
             VStack(spacing: 10) {
                 VStack(alignment: .leading) {
-                    championInfo
-                    championLore
-                    championSkinView
-                    championSpells
+                    ChampionInfoView(champion: champion, visibleRatio: visibleRatio)
+                    ChampionLoreView(showFullLoreText: $showFullLoreText, lore: lore)
+                    ChampionSkinsView(champion: champion, skins: skins)
+                    ChampionSpellsView(passive: passive, spells: spells)
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 40)
@@ -85,217 +85,9 @@ struct ChampionDetailView: View {
         }
     }
 
-    private var championSplashImageView: some View {
-        ZStack(alignment: .bottom) {
-            CachedAsyncImage(
-                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/\(champion.id)_0.jpg"),
-                urlCache: URLCache.imageCache) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                }
-
-            LinearGradient(colors: [.clear, .darkBackground], startPoint: .top, endPoint: .bottom)
-                .frame(height: 100)
-        }
-    }
-
-    private var championSkinView: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Label("Skins", systemImage: "person.and.person.fill")
-                .detailTitleLabelStyle()
-
-            ScrollView(.horizontal) {
-                LazyHStack(spacing: 0) {
-                    ForEach(skins, id: \.id) { skin in
-                        VStack {
-                            CachedAsyncImage(
-                                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.id)_\(skin.num).jpg"),
-                                urlCache: URLCache.imageCache) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                                        .padding(.horizontal, 5)
-                                        .containerRelativeFrame(.horizontal)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-
-                            Text(skin.name == "default" ? champion.id : skin.name)
-                                .font(Fonts.beaufortforLolBold.withSize(15))
-                                .foregroundStyle(.gold2)
-                        }
-                    }
-                }
-                .scrollTargetLayout()
-            }
-            .scrollTargetBehavior(.viewAligned)
-            .scrollIndicators(.hidden)
-            .safeAreaPadding(.horizontal)
-        }
-    }
-
-    private var championInfo: some View {
-        return HStack(alignment: .center, spacing: 10) {
-            Text(champion.name)
-                .font(Fonts.beaufortforLolBold.withSize(52))
-                .foregroundStyle(.gold2)
-                .opacity(visibleRatio * 5)
-
-            HStack(spacing: 5) {
-                ForEach(champion.tags, id: \.self) { tag in
-                    Image(setRoleIcon(for: tag))
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-            }
-            .opacity(visibleRatio * 5)
-        }
-    }
-
-    private var championLore: some View {
-        return Group {
-            Label("Lore", systemImage: "book.fill")
-                .detailTitleLabelStyle()
-
-            VStack(spacing: 10) {
-                VStack {
-                    if lore.isEmpty {
-                        Text(Constants.sampleParagraph)
-                            .font(Fonts.beaufortforLolBold.withSize(18))
-                            .foregroundStyle(.gold1)
-                            .redacted(reason: .placeholder)
-                            .shimmering()
-                    } else {
-                        Text(lore)
-                            .font(Fonts.beaufortforLolBold.withSize(18))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .foregroundStyle(.gold1)
-                    }
-                }
-                .overlay {
-                    withAnimation(.easeInOut) {
-                        LinearGradient(
-                            stops: [
-                                .init(color: .darkBackground, location: 0),
-                                .init(color: .darkBackground, location: 0.25),
-                                .init(color: .clear, location: 1)
-                            ],
-                            startPoint: .bottom,
-                            endPoint: .top
-                        )
-                        .opacity(showFullLoreText ? 0 : 1)
-                    }
-                }
-
-                if !lore.isEmpty {
-                    withAnimation(.easeInOut) {
-                        Button {
-                            withAnimation(.spring) {
-                                showFullLoreText.toggle()
-                            }
-                        } label: {
-                            Text(showFullLoreText ? "Read less" : "Read more...")
-                                .font(Fonts.beaufortforLolBold.withSize(18))
-                                .foregroundStyle(.gold2)
-                        }
-                        .offset(y: showFullLoreText ? 0 : -50)
-                    }
-                }
-            }
-            .padding(.bottom)
-        }
-    }
-
-    private var championSpells: some View {
-        return VStack(alignment: .leading, spacing: 0) {
-            Label("Spells", systemImage: "wand.and.stars")
-                .detailTitleLabelStyle()
-
-            HStack(spacing: 10) {
-                CachedAsyncImage(
-                    url: URL(string: "https://ddragon.leagueoflegends.com/cdn/\(viewModel.version)/img/passive/\(passive.image.full)"),
-                    urlCache: URLCache.imageCache) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 60, height: 60)
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                    } placeholder: {
-                        ProgressView()
-                    }
-
-                DisclosureGroup {
-                    Text(passive.formattedPassiveDescription)
-                        .font(Fonts.beaufortforLolBold.withSize(12))
-                        .foregroundStyle(.gold1)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                } label: {
-                    HStack {
-                        Text(passive.name)
-                            .font(Fonts.beaufortforLolBold.withSize(20))
-                            .foregroundStyle(.gold3)
-
-                        Text("(Passive)")
-                            .font(Fonts.beaufortforLolBold.withSize(14))
-                            .foregroundStyle(.gold3)
-                    }
-                }
-            }
-
-            ForEach(spells) { spell in
-                HStack(spacing: 10) {
-                    CachedAsyncImage(
-                        url: URL(string: "https://ddragon.leagueoflegends.com/cdn/\(viewModel.version)/img/spell/\(spell.id).png"),
-                        urlCache: URLCache.imageCache) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 60, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
-                        } placeholder: {
-                            ProgressView()
-                        }
-
-                    DisclosureGroup {
-                        Text(spell.formattedSpellDescription)
-                            .font(Fonts.beaufortforLolBold.withSize(12))
-                            .foregroundStyle(.gold1)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    } label: {
-                        Text(spell.name)
-                            .font(Fonts.beaufortforLolBold.withSize(20))
-                            .foregroundStyle(.gold3)
-                    }
-                }
-            }
-        }
-    }
-
     private func handleOffset(_ scrollOffset: CGPoint, visibleHeaderRatio: CGFloat) {
         self.offset = scrollOffset
         self.visibleRatio = visibleHeaderRatio
-    }
-
-    private func setRoleIcon(for tag: String) -> String {
-        if tag == "Assassin" {
-            return "assasinIcon"
-        } else if tag == "Fighter" {
-            return "fighterIcon"
-        } else if tag == "Mage" {
-            return "mageIcon"
-        } else if tag == "Marksman" {
-            return "marksmanIcon"
-        } else if tag == "Support" {
-            return "supportIcon"
-        } else if tag == "Tank" {
-            return "tankIcon"
-        } else {
-            return ""
-        }
     }
 }
 
