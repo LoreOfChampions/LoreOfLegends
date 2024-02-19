@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailTitleLabelStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Fonts.beaufortforLolBold.withSize(40))
+            .font(Fonts.beaufortforLolMedium.withSize(40))
             .foregroundStyle(.gold2)
     }
 }
