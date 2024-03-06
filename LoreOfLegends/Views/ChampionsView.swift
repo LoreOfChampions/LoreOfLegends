@@ -10,15 +10,12 @@ import SwiftUI
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
     @State private var isLoading: Bool = false
+    @State private var isPopoverPresented: Bool = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 ChampionGridView(isLoading: $isLoading)
-
-                Text(isLoading ? "" : "App version: \(viewModel.version)")
-                    .detailLabelStyle(fontSize: 11, color: .gold3)
-                    .padding(.vertical)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -26,7 +23,25 @@ struct ChampionsView: View {
                         .detailLabelStyle(fontSize: 30, color: .gold3)
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isPopoverPresented.toggle()
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .foregroundStyle(.gold3)
+                    }
+                    .popover(isPresented: $isPopoverPresented) {
+                        AboutView(isPopoverPresented: $isPopoverPresented)
+                    }
+                }
+            }
             .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
+            .overlay {
+                if !viewModel.searchingQuery.isEmpty && viewModel.filteredChampions.isEmpty {
+                    ContentUnavailableView.search(text: viewModel.searchingQuery)
+                }
+            }
             .padding(.horizontal, 19)
             .scrollIndicators(.hidden)
             .background(.darkBackground)
