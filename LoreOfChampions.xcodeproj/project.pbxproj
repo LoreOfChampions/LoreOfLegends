@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */; };
+		BD36C1C72B98682A006164F8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD36C1C62B98682A006164F8 /* AboutView.swift */; };
 		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
 		BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */; };
 		BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleLabelStyle.swift; sourceTree = "<group>"; };
+		BD36C1C62B98682A006164F8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD71A1FD2B225E0A001E5377 /* LoreOfChampions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfChampions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD36C1C52B98681C006164F8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				BD36C1C62B98682A006164F8 /* AboutView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		BD71A1F42B225E0A001E5377 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 		BD71A20F2B2260F6001E5377 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD36C1C52B98681C006164F8 /* CustomViews */,
 				BD7A92742B834E13001B360F /* ChampionDetailViews */,
 				BD71A2542B22685E001E5377 /* Cells */,
 				BD71A24A2B226782001E5377 /* ChampionsView.swift */,
@@ -474,6 +485,7 @@
 				BD71A24F2B2267CF001E5377 /* ChampionGridView.swift in Sources */,
 				BD7A927B2B834FD0001B360F /* PassiveSpellView.swift in Sources */,
 				BD71A23D2B22666C001E5377 /* Constants.swift in Sources */,
+				BD36C1C72B98682A006164F8 /* AboutView.swift in Sources */,
 				BD71A2452B226708001E5377 /* String+ext.swift in Sources */,
 				BD71A23F2B2266C0001E5377 /* VersionViewModel.swift in Sources */,
 				BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */,
