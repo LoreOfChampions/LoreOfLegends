@@ -39,6 +39,7 @@ import Foundation
     }
 
     // MARK: - Get all the champions with the latest version
+
     @MainActor func getChampions() async throws {
         let endpoint = Constants.buildURLEndpointString(version: self.version)
 
