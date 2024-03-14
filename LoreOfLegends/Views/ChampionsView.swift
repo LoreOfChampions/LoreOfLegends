@@ -10,7 +10,7 @@ import SwiftUI
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
     @State private var isLoading: Bool = false
-    @State private var isPopoverPresented: Bool = false
+    @State private var shouldShowInfoView: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -26,13 +26,12 @@ struct ChampionsView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        isPopoverPresented.toggle()
+                        withAnimation(.easeIn) {
+                            shouldShowInfoView.toggle()
+                        }
                     } label: {
                         Image(systemName: "info.circle")
                             .foregroundStyle(.gold3)
-                    }
-                    .popover(isPresented: $isPopoverPresented) {
-                        AboutView(isPopoverPresented: $isPopoverPresented)
                     }
                 }
             }
@@ -47,6 +46,9 @@ struct ChampionsView: View {
             .background(.darkBackground)
         }
         .tint(.gold3)
+        .overlay {
+            InfoView(shouldShowInfoView: $shouldShowInfoView)
+        }
         .task {
             isLoading = true
             do {
