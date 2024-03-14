@@ -27,7 +27,7 @@ struct InfoView: View {
                     .fill(.thinMaterial)
                     .frame(height: 150)
                     .padding(.horizontal, 5)
-                    .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+                    .transition(.move(edge: .bottom))
                     .overlay {
                         InfoViewOverlay(viewModel: viewModel) {
                             shouldShowInfoView.toggle()
