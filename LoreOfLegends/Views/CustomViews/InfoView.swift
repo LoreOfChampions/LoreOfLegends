@@ -33,8 +33,11 @@ struct InfoView: View {
                             shouldShowInfoView.toggle()
                         }
                     }
+                    .padding(.bottom, 40)
+
             }
         }
+        .ignoresSafeArea(edges: [.bottom])
     }
 }
 
