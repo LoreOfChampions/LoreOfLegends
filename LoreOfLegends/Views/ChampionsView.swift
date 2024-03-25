@@ -36,6 +36,13 @@ struct ChampionsView: View {
                 }
             }
             .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
+            .refreshable(action: {
+                do {
+                    try await viewModel.getChampions()
+                } catch {
+                    print(LOLError.unableToDecodeData)
+                }
+            })
             .overlay {
                 if !viewModel.searchingQuery.isEmpty && viewModel.filteredChampions.isEmpty {
                     ContentUnavailableView.search(text: viewModel.searchingQuery)
