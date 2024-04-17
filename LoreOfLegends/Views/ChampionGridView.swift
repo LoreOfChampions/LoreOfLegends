@@ -9,31 +9,23 @@ import SwiftUI
 import Shimmer
 
 struct ChampionGridView: View {
-    @EnvironmentObject var viewModel: ChampionViewModel
-
-    @Binding var isLoading: Bool
+    @EnvironmentObject private var viewModel: ChampionViewModel
 
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
+    
+    let champions: [Champion]
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
             if viewModel.selectedChampion != nil || !viewModel.searchingQuery.isEmpty {
                 SearchedChampionView()
             } else {
-                if isLoading {
-                    ForEach(0..<10) { _ in
-                        SampleCell()
-                            .redacted(reason: .placeholder)
-                            .shimmering()
-                    }
-                } else {
-                    AlphabeticallySortedChampionsView()
-                }
+                AlphabeticallySortedChampionsView(champions: champions)
             }
         }
     }
 }
 
 #Preview {
-    ChampionGridView(isLoading: .constant(false))
+    ChampionGridView(champions: [.exampleChampion])
 }
