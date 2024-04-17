@@ -16,7 +16,7 @@ struct Constants {
     static let goldGradient: Gradient = Gradient(colors: [.gold5, .gold4])
     static let blueGradient: Gradient = Gradient(colors: [.blue4, .blue2])
 
-    static func buildURLEndpointString(version: String, championID: String? = nil) -> String {
-        return "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion\(championID ?? "").json"
+    static func buildURLEndpointString(version: String, championID: String = "") -> String {
+        return "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion\(championID).json"
     }
 }
