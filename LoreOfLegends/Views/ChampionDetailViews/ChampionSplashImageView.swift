@@ -9,13 +9,12 @@ import SwiftUI
 import CachedAsyncImage
 
 struct ChampionSplashImageView: View {
-
-    let champion: Champion
+    let championDetail: ChampionDetail
 
     var body: some View {
         ZStack(alignment: .bottom) {
             CachedAsyncImage(
-                url: URL(string:  Constants.baseURL + "img/champion/centered/\(champion.id)_0.jpg"),
+                url: URL(string:  Constants.baseURL + "img/champion/centered/\(championDetail.id)_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
@@ -31,5 +30,5 @@ struct ChampionSplashImageView: View {
 }
 
 #Preview {
-    ChampionSplashImageView(champion: Champion.exampleChampion)
+    ChampionSplashImageView(championDetail: ChampionDetail.exampleChampionDetail)
 }

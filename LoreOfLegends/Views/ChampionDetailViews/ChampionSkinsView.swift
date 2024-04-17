@@ -9,9 +9,8 @@ import SwiftUI
 import CachedAsyncImage
 
 struct ChampionSkinsView: View {
-
-    let champion: Champion
-    let skins: [Champion.Skin]
+    let championID: String
+    let skins: [ChampionDetail.Skin]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -24,7 +23,7 @@ struct ChampionSkinsView: View {
                     ForEach(skins, id: \.id) { skin in
                         VStack(spacing: 10) {
                             CachedAsyncImage(
-                                url: URL(string: Constants.baseURL + "img/champion/splash/\(champion.id)_\(skin.num).jpg"),
+                                url: URL(string: Constants.baseURL + "img/champion/splash/\(championID)_\(skin.num).jpg"),
                                 urlCache: URLCache.imageCache) { image in
                                     image
                                         .resizable()
@@ -37,7 +36,7 @@ struct ChampionSkinsView: View {
                                 }
                                 .padding(.bottom, 5)
 
-                            Text(skin.name == "default" ? champion.id : skin.name)
+                            Text(skin.name == "default" ? championID : skin.name)
                                 .detailLabelStyle(fontSize: 15, color: .gold2)
                         }
                     }
@@ -53,5 +52,5 @@ struct ChampionSkinsView: View {
 }
 
 #Preview {
-    ChampionSkinsView(champion: Champion.exampleChampion, skins: [])
+    ChampionSkinsView(championID: "", skins: [])
 }

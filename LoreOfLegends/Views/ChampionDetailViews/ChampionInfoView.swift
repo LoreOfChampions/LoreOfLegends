@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ChampionInfoView: View {
-    @EnvironmentObject private var viewModel: ChampionDetailViewModel
-
-    let champion: Champion
+    let viewModel: ChampionDetailViewModel
+    let name: String
+    let tags: [String]
     let visibleRatio: CGFloat
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 5) {
-                ForEach(champion.tags, id: \.self) { tag in
+                ForEach(tags, id: \.self) { tag in
                     Image(viewModel.setRoleIcon(for: tag))
                         .resizable()
                         .frame(width: 30, height: 30)
@@ -28,7 +28,7 @@ struct ChampionInfoView: View {
                 }
             }
 
-            Text(champion.name)
+            Text(name)
                 .detailLabelStyle(fontSize: 56, color: .gold2)
         }
         .padding(.bottom, 20)
@@ -37,5 +37,5 @@ struct ChampionInfoView: View {
 }
 
 #Preview {
-    ChampionInfoView(champion: Champion.exampleChampion, visibleRatio: .zero)
+    ChampionInfoView(viewModel: ChampionDetailViewModel(dataService: MockDataService()), name: "", tags: [""], visibleRatio: 0)
 }

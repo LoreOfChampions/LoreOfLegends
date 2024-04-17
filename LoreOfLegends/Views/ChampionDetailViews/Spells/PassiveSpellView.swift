@@ -11,12 +11,12 @@ import CachedAsyncImage
 struct PassiveSpellView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel
 
-    let passive: Champion.Passive
+    let passive: ChampionDetail.Passive
 
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             CachedAsyncImage(
-                url: URL(string: Constants.baseURL + "\(viewModel.version)/img/passive/\(passive.image.full)"),
+                url: URL(string: Constants.baseURL + "14.7.1/img/passive/\(passive.image.full)"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
