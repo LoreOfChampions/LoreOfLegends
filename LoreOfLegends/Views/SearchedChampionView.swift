@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SearchedChampionView: View {
-    @EnvironmentObject var viewModel: ChampionViewModel
-    
+    @EnvironmentObject private var viewModel: ChampionViewModel
+
     let champion: Champion = Champion.exampleChampion
 
     var body: some View {
