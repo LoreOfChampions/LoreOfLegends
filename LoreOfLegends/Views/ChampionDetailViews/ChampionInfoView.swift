@@ -10,6 +10,7 @@ import SwiftUI
 struct ChampionInfoView: View {
     let viewModel: ChampionDetailViewModel
     let name: String
+    let title: String
     let tags: [String]
     let visibleRatio: CGFloat
 
@@ -30,6 +31,8 @@ struct ChampionInfoView: View {
 
             Text(name)
                 .detailLabelStyle(fontSize: 56, color: .gold2)
+            Text(title)
+                .detailLabelStyle(fontSize: 18, color: .gold2)
         }
         .padding(.bottom, 20)
         .opacity(visibleRatio * 5)
@@ -37,5 +40,5 @@ struct ChampionInfoView: View {
 }
 
 #Preview {
-    ChampionInfoView(viewModel: ChampionDetailViewModel(dataService: MockDataService()), name: "", tags: [""], visibleRatio: 0)
+    ChampionInfoView(viewModel: ChampionDetailViewModel(dataService: MockDataService()), name: "", title: "", tags: [""], visibleRatio: 0)
 }

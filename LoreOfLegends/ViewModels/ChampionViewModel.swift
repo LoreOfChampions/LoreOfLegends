@@ -36,6 +36,10 @@ import Foundation
         }
     }
 
+    var alphabeticallySortedChampions: [Champion] {
+        return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
+    }
+
     let dataService: DataServiceProtocol
 
     init(dataService: DataServiceProtocol) {
@@ -48,7 +52,7 @@ import Foundation
         switch result {
         case .success(let champions):
             self.champions = champions
-            state = .loaded(Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize)))
+            state = .loaded(champions)
         case .failure(let error):
             state = .error(error, retry: { [weak self] in
                 self?.state = .loading

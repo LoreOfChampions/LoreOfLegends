@@ -14,17 +14,29 @@ struct ChampionSplashImageView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             CachedAsyncImage(
-                url: URL(string:  Constants.baseURL + "img/champion/centered/\(championDetail.id)_0.jpg"),
+                url: URL(string:  Constants.baseURL + "img/champion/centered/\(returnCorrectedID(championID: championDetail.id))_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
                         .scaledToFill()
                 } placeholder: {
-                    ProgressView()
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(.grey4)
+                        .opacity(0.25)
+                        .shimmering()
+                        .frame(height: 400)
                 }
 
             LinearGradient(colors: [.clear, .darkBackground], startPoint: .top, endPoint: .bottom)
                 .frame(height: 100)
+        }
+    }
+
+    private func returnCorrectedID(championID: String) -> String {
+        if championDetail.id.contains("Fiddle") {
+            return "FiddleSticks"
+        } else {
+            return championDetail.id
         }
     }
 }

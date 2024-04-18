@@ -27,12 +27,18 @@ struct ChampionSkinsView: View {
                                 urlCache: URLCache.imageCache) { image in
                                     image
                                         .resizable()
+                                        .frame(width: 320, height: 200)
                                         .scaledToFit()
                                         .clipShape(RoundedRectangle(cornerRadius: 25))
                                         .padding(.horizontal, 5)
                                         .containerRelativeFrame(.horizontal)
                                 } placeholder: {
-                                    ProgressView()
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(.grey4)
+                                        .frame(width: 320, height: 200)
+                                        .padding(.horizontal, 5)
+                                        .containerRelativeFrame(.horizontal)
+                                        .shimmering()
                                 }
                                 .padding(.bottom, 5)
 
