@@ -20,7 +20,7 @@ struct ChampionGridView: View {
             if viewModel.selectedChampion != nil || !viewModel.searchingQuery.isEmpty {
                 SearchedChampionView()
             } else {
-                AlphabeticallySortedChampionsView(champions: champions)
+                AlphabeticallySortedChampionsView()
             }
         }
     }
