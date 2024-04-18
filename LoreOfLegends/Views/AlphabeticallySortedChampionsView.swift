@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct AlphabeticallySortedChampionsView: View {
-    @EnvironmentObject var viewModel: ChampionViewModel
+    @EnvironmentObject private var viewModel: ChampionViewModel
 
-    let champion: Champion = Champion.exampleChampion
+    let champions: [Champion]
 
     var body: some View {
-        ForEach(Array(viewModel.alphabeticallySortedChampions.enumerated()), id: \.offset) { (index, champion) in
+        ForEach(Array(champions.enumerated()), id: \.offset) { (index, champion) in
             NavigationLink {
                 ChampionDetailView(champion: champion)
             } label: {
                 ChampionGridCell(champion: champion)
             }
             .onAppear {
-                if index == viewModel.alphabeticallySortedChampions.lastIndex(of: champion) {
+                if index == champions.lastIndex(of: champion) {
                     viewModel.currentPage += 1
                 }
             }
@@ -29,5 +29,5 @@ struct AlphabeticallySortedChampionsView: View {
 }
 
 #Preview {
-    AlphabeticallySortedChampionsView()
+    AlphabeticallySortedChampionsView(champions: [.exampleChampion])
 }

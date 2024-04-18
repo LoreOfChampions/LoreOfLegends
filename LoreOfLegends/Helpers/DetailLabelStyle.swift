@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DetailLabelStyle: ViewModifier {
-
     let fontSize: CGFloat
     let color: Color
 

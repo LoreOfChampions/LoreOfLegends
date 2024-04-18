@@ -52,7 +52,7 @@ struct InfoViewOverlay: View {
                 HStack(alignment: .lastTextBaseline, spacing: 5) {
                     Text("version")
                         .detailLabelStyle(fontSize: 18, color: .gold3)
-                    Text("\(viewModel.version)")
+                    Text("\(viewModel.latestVersion)")
                         .detailLabelStyle(fontSize: 24, color: .gold3)
                 }
                 Spacer()

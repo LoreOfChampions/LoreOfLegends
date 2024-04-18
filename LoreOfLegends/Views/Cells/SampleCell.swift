@@ -10,7 +10,7 @@ import SwiftUI
 struct SampleCell: View {
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 10) {
             RoundedRectangle(cornerRadius: 20)
                 .fill(.grey4)
                 .frame(height: 326)

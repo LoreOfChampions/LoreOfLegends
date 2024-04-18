@@ -7,12 +7,20 @@
 
 import Foundation
 
-@MainActor class ChampionViewModel: ObservableObject {
+@MainActor final class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
-
+    @Published var state: State = .loading
     @Published var currentPage = 1
+    @Published var latestVersion: String = ""
+
+    enum State {
+        case loading
+        case loaded([Champion])
+        case error(DataServiceError, retry: () async -> Void)
+    }
+    
     private let pageSize = 20
 
     var filteredChampions: [Champion] {
@@ -28,34 +36,35 @@ import Foundation
         }
     }
 
-    var alphabeticallySortedChampions: [Champion] {
-        return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
+    let dataService: DataServiceProtocol
+
+    init(dataService: DataServiceProtocol) {
+        self.dataService = dataService
     }
 
-    let version: String
+    func load() async {
+        let result = await dataService.getChampions()
 
-    init(version: String) {
-        self.version = version
+        switch result {
+        case .success(let champions):
+            self.champions = champions
+            state = .loaded(Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize)))
+        case .failure(let error):
+            state = .error(error, retry: { [weak self] in
+                self?.state = .loading
+                await self?.load()
+            })
+        }
     }
 
-    // MARK: - Get all the champions with the latest version
+    func loadLatestVersion() async {
+        let result = await dataService.fetchVersion()
 
-    @MainActor func getChampions() async throws {
-        let endpoint = Constants.buildURLEndpointString(version: self.version)
-
-        guard let url = URL(string: endpoint) else {
-            throw LOLError.invalidURL
+        switch result {
+        case .success(let version):
+            latestVersion = version
+        case .failure(let error):
+            print(error)
         }
-
-        let (data, response) = try await URLSession.shared.data(from: url)
-
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw LOLError.unableToComplete
-        }
-
-        let decoder = JSONDecoder()
-        let championsData = try decoder.decode(ChampionData.self, from: data)
-
-        self.champions = Array(championsData.data.values)
     }
 }

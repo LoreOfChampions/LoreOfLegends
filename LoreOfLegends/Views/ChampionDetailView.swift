@@ -11,18 +11,18 @@ import ScrollKit
 import Shimmer
 
 struct ChampionDetailView: View {
-    @EnvironmentObject private var viewModel: ChampionDetailViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel: ChampionDetailViewModel = ChampionDetailViewModel(dataService: LiveDataService())
     @State private var showFullLoreText: Bool = false
     @State private var showFullSpellDescription: Bool = false
-
-    @State private var spells: [Champion.Spell] = []
-    @State private var skins: [Champion.Skin] = []
-    @State private var lore: String = ""
-    @State private var passive: Champion.Passive = Champion.Passive(name: "", description: "", image: Champion.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0))
-
     @State private var offset = CGPoint.zero
     @State private var visibleRatio = CGFloat.zero
+
+    private let emptyPassive: ChampionDetail.Passive = ChampionDetail.Passive(
+        name: "",
+        description: "",
+        image: ChampionDetail.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0)
+    )
 
     let champion: Champion
 
@@ -31,24 +31,59 @@ struct ChampionDetailView: View {
     }
 
     var body: some View {
-        ScrollViewWithStickyHeader(header: {
-            ZStack {
-                ChampionSplashImageView(champion: champion)
-                Color.darkBackground
-                    .opacity(-visibleRatio * 4 + 1)
-            }
-        }, headerHeight: 400) { offset, headerVisibleRatio in
-            handleOffset(offset, visibleHeaderRatio: headerVisibleRatio)
-        } content: {
-            VStack(spacing: 10) {
-                VStack(alignment: .leading) {
-                    ChampionInfoView(champion: champion, visibleRatio: visibleRatio)
-                    ChampionLoreView(showFullLoreText: $showFullLoreText, lore: lore)
-                    ChampionSkinsView(champion: champion, skins: skins)
-                    ChampionSpellsView(passive: passive, spells: spells)
+        Group {
+            switch viewModel.state {
+            case .loading:
+                ProgressView()
+            case .loaded(let championDetails):
+                ForEach(championDetails) { detail in
+                    ScrollViewWithStickyHeader(header: {
+                        ZStack {
+                            ChampionSplashImageView(championDetail: detail)
+                            Color.darkBackground
+                                .opacity(-visibleRatio * 4 + 1)
+                        }
+                    }, headerHeight: 400) { offset, headerVisibleRatio in
+                        handleOffset(offset, visibleHeaderRatio: headerVisibleRatio)
+                    } content: {
+                        VStack(spacing: 10) {
+                            VStack(alignment: .leading) {
+                                ChampionInfoView(viewModel: viewModel, name: detail.name, tags: detail.tags, visibleRatio: visibleRatio)
+                                ChampionLoreView(showFullLoreText: $showFullLoreText, lore: detail.lore ?? "N/A")
+                                ChampionSkinsView(championID: detail.id, skins: detail.skins ?? [])
+                                ChampionSpellsView(
+                                    viewModel: viewModel,
+                                    passive: detail.passive ?? ChampionDetail.Passive.init(
+                                        name: "",
+                                        description: "",
+                                        image: .init(
+                                            full: "",
+                                            sprite: "",
+                                            group: "",
+                                            x: 0,
+                                            y: 0,
+                                            w: 0,
+                                            h: 0
+                                        )
+                                    ),
+                                    spells: detail.spells ?? [])
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 40)
+                        }
+                    }
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 40)
+            case .error(let dataServiceError, let retry):
+                LOCErrorView(
+                    title: dataServiceError.errorTitle,
+                    message: dataServiceError.errorDescription ?? dataServiceError.localizedDescription,
+                    buttonTitle: dataServiceError.buttonTitle,
+                    buttonAction: {
+                        Task {
+                            await retry()
+                        }
+                    }
+                )
             }
         }
         .scrollIndicators(.hidden)
@@ -71,17 +106,7 @@ struct ChampionDetailView: View {
             }
         }
         .task {
-            do {
-                let championData = try await viewModel.fetchChampionDetails(championID: champion.id)
-                if let championDetails = championData.data[champion.id] {
-                    skins = championDetails.skins ?? []
-                    lore = championDetails.lore ?? ""
-                    spells = championDetails.spells ?? []
-                    passive = championDetails.passive ?? .init(name: "", description: "", image: Champion.Image(full: "", sprite: "", group: "", x: 0, y: 0, w: 48, h: 48))
-                }
-            } catch {
-                print(LOLError.unableToDecodeData)
-            }
+            await viewModel.loadChampionDetails(championID: champion.id)
         }
     }
 
@@ -103,5 +128,5 @@ extension UINavigationController: UIGestureRecognizerDelegate {
 }
 
 #Preview {
-    ChampionDetailView(champion: Champion.exampleChampion)
+    ChampionDetailView(champion: .exampleChampion)
 }

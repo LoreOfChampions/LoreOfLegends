@@ -7,32 +7,35 @@
 
 import Foundation
 
-class ChampionDetailViewModel: ObservableObject {
-    let version: String
+@MainActor final class ChampionDetailViewModel: ObservableObject {
+    @Published var championDetail: ChampionDetail = .exampleChampionDetail
+    @Published var state: State = .loading
 
-    init(version: String) {
-        self.version = version
+    enum State {
+        case loading
+        case loaded([ChampionDetail])
+        case error(DataServiceError, retry: () async -> Void)
     }
 
-    //MARK: - Fetch all the extra data related to the specific champion from the latest version
-    func fetchChampionDetails(championID: String) async throws -> ChampionData {
-        let endpoint = Constants.buildURLEndpointString(version: self.version, championID: "/" + championID)
+    let dataService: DataServiceProtocol
 
-        guard let url = URL(string: endpoint) else {
-            throw LOLError.invalidURL
+    init(dataService: DataServiceProtocol) {
+        self.dataService = dataService
+    }
+
+    func loadChampionDetails(championID: String) async {
+        self.state = .loading
+        let result = await dataService.fetchChampionDetails(championID: championID)
+
+        switch result {
+        case .success(let championDetails):
+            state = .loaded(championDetails)
+        case .failure(let error):
+            state = .error(error, retry: { [weak self] in
+                self?.state = .loading
+                await self?.loadChampionDetails(championID: championID)
+            })
         }
-
-        let (data, response) = try await URLSession.shared.data(from: url)
-        try await Task.sleep(nanoseconds: NSEC_PER_SEC)
-
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw LOLError.unableToComplete
-        }
-
-        let decoder = JSONDecoder()
-        let championDetails = try decoder.decode(ChampionData.self, from: data)
-
-        return championDetails
     }
 
     func setRoleIcon(for tag: String) -> String {

@@ -9,10 +9,9 @@ import SwiftUI
 import CachedAsyncImage
 
 struct ChampionSpellsView: View {
-    @EnvironmentObject private var viewModel: ChampionDetailViewModel
-
-    let passive: Champion.Passive
-    let spells: [Champion.Spell]
+    let viewModel: ChampionDetailViewModel
+    let passive: ChampionDetail.Passive
+    let spells: [ChampionDetail.Spell]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -26,5 +25,9 @@ struct ChampionSpellsView: View {
 }
 
 #Preview {
-    ChampionSpellsView(passive: .init(name: "", description: "", image: .init(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0)), spells: [Champion.Spell(id: "", name: "", description: "")])
+    ChampionSpellsView(
+        viewModel: ChampionDetailViewModel(dataService: MockDataService()),
+        passive: .init(name: "", description: "", image: .init(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0)),
+        spells: [ChampionDetail.Spell(id: "", name: "", description: "")]
+    )
 }
