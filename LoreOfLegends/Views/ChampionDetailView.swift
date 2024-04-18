@@ -48,7 +48,7 @@ struct ChampionDetailView: View {
                     } content: {
                         VStack(spacing: 10) {
                             VStack(alignment: .leading) {
-                                ChampionInfoView(viewModel: viewModel, name: detail.name, tags: detail.tags, visibleRatio: visibleRatio)
+                                ChampionInfoView(viewModel: viewModel, name: detail.name, title: detail.title, tags: detail.tags, visibleRatio: visibleRatio)
                                 ChampionLoreView(showFullLoreText: $showFullLoreText, lore: detail.lore ?? "N/A")
                                 ChampionSkinsView(championID: detail.id, skins: detail.skins ?? [])
                                 ChampionSpellsView(
