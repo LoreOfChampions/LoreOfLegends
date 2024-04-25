@@ -25,7 +25,7 @@ class LiveDataService: DataServiceProtocol {
             }
 
             let decoder = JSONDecoder()
-            let championsData = try decoder.decode(ChampionData.self, from: data)
+            let championsData = try decoder.decode(ResponseData<Champion>.self, from: data)
 
             return .success(Array(championsData.data.values))
         } catch {
@@ -69,7 +69,7 @@ class LiveDataService: DataServiceProtocol {
             }
 
             let decoder = JSONDecoder()
-            let championDetails = try decoder.decode(ChampionDetailData.self, from: data)
+            let championDetails = try decoder.decode(ResponseData<ChampionDetail>.self, from: data)
 
             return .success(Array(championDetails.data.values))
         } catch {

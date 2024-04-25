@@ -20,7 +20,6 @@
 		BD71A23D2B22666C001E5377 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A23C2B22666C001E5377 /* Constants.swift */; };
 		BD71A2412B2266E0001E5377 /* ChampionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2402B2266E0001E5377 /* ChampionDetailViewModel.swift */; };
 		BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2422B2266F7001E5377 /* ChampionViewModel.swift */; };
-		BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2462B22672F001E5377 /* ChampionData.swift */; };
 		BD71A2492B22674B001E5377 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2482B22674B001E5377 /* Champion.swift */; };
 		BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A24A2B226782001E5377 /* ChampionsView.swift */; };
 		BD71A24F2B2267CF001E5377 /* ChampionGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */; };
@@ -42,7 +41,7 @@
 		BD902FB82B2B76D800CE53C9 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = BD902FB72B2B76D800CE53C9 /* Shimmer */; };
 		BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */; };
 		BD9BBA032BCEF92900464D67 /* ChampionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */; };
-		BD9BBA052BCF10A700464D67 /* ChampionDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBA042BCF10A700464D67 /* ChampionDetailData.swift */; };
+		BD9BBA052BCF10A700464D67 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBA042BCF10A700464D67 /* ResponseData.swift */; };
 		BDCDC1432B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */; };
 		BDCDC1452B31E09B00472E2F /* SearchedChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */; };
 		BDD444D62B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDD444CA2B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf */; };
@@ -95,7 +94,6 @@
 		BD71A23C2B22666C001E5377 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD71A2402B2266E0001E5377 /* ChampionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailViewModel.swift; sourceTree = "<group>"; };
 		BD71A2422B2266F7001E5377 /* ChampionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewModel.swift; sourceTree = "<group>"; };
-		BD71A2462B22672F001E5377 /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
 		BD71A2482B22674B001E5377 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		BD71A24A2B226782001E5377 /* ChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsView.swift; sourceTree = "<group>"; };
 		BD71A24E2B2267CF001E5377 /* ChampionGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionGridView.swift; sourceTree = "<group>"; };
@@ -116,7 +114,7 @@
 		BD7A92802B8365AD001B360F /* DetailLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabelStyle.swift; sourceTree = "<group>"; };
 		BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetail.swift; sourceTree = "<group>"; };
-		BD9BBA042BCF10A700464D67 /* ChampionDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailData.swift; sourceTree = "<group>"; };
+		BD9BBA042BCF10A700464D67 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticallySortedChampionsView.swift; sourceTree = "<group>"; };
 		BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedChampionView.swift; sourceTree = "<group>"; };
 		BDD444CA2B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Medium.otf"; sourceTree = "<group>"; };
@@ -223,10 +221,9 @@
 		BD71A20E2B2260EF001E5377 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BD71A2462B22672F001E5377 /* ChampionData.swift */,
 				BD71A2482B22674B001E5377 /* Champion.swift */,
 				BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */,
-				BD9BBA042BCF10A700464D67 /* ChampionDetailData.swift */,
+				BD9BBA042BCF10A700464D67 /* ResponseData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -513,7 +510,7 @@
 				BD71A23B2B2265EB001E5377 /* URLCache+ext.swift in Sources */,
 				BD7A92762B834E3D001B360F /* ChampionSplashImageView.swift in Sources */,
 				BD71A2512B2267F1001E5377 /* ChampionDetailView.swift in Sources */,
-				BD9BBA052BCF10A700464D67 /* ChampionDetailData.swift in Sources */,
+				BD9BBA052BCF10A700464D67 /* ResponseData.swift in Sources */,
 				BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */,
 				BD71A2362B2265BB001E5377 /* Typography.swift in Sources */,
 				BD736E3C2BC9B32000CEF6AD /* DataServiceError.swift in Sources */,
@@ -526,7 +523,6 @@
 				BD7A92812B8365AD001B360F /* DetailLabelStyle.swift in Sources */,
 				BD736E3E2BCD47D200CEF6AD /* LOCErrorView.swift in Sources */,
 				BD7A92782B834EDA001B360F /* ChampionSpellsView.swift in Sources */,
-				BD71A2472B22672F001E5377 /* ChampionData.swift in Sources */,
 				BD71A2412B2266E0001E5377 /* ChampionDetailViewModel.swift in Sources */,
 				BD71A2492B22674B001E5377 /* Champion.swift in Sources */,
 				BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */,

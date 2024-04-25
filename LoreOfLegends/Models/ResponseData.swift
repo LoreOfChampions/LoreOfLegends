@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ChampionDetailData: Codable {
+struct ResponseData<T: Codable>: Codable {
     let type: String
     let format: String
     let version: String
-    let data: [String: ChampionDetail]
+    let data: [String: T]
 }
