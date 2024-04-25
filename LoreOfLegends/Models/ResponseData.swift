@@ -1,5 +1,5 @@
 //
-//  ChampionDetailData.swift
+//  ResponseData.swift
 //  LoreOfChampions
 //
 //  Created by Peter Mihók on 16/04/2024.
