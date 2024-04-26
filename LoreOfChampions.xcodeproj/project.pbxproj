@@ -10,7 +10,6 @@
 		BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */; };
 		BD36C1C72B98682A006164F8 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD36C1C62B98682A006164F8 /* InfoView.swift */; };
 		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
-		BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */; };
 		BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
 		BD71A2082B225E0B001E5377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2072B225E0B001E5377 /* Preview Assets.xcassets */; };
@@ -84,7 +83,6 @@
 /* Begin PBXFileReference section */
 		BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleLabelStyle.swift; sourceTree = "<group>"; };
 		BD36C1C62B98682A006164F8 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD71A1FD2B225E0A001E5377 /* LoreOfChampions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfChampions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				BD71A2122B226121001E5377 /* Helpers */,
 				BD71A2042B225E0B001E5377 /* Assets.xcassets */,
 				BD71A2062B225E0B001E5377 /* Preview Content */,
-				BD607CA92B31AE6200B38591 /* Launch Screen.storyboard */,
 			);
 			path = LoreOfLegends;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				BDD444F22B7E507100BE5FB9 /* BeaufortforLOL-Medium.ttf in Resources */,
 				BDD444F72B7E507100BE5FB9 /* BeaufortforLOL-HeavyItalic.ttf in Resources */,
 				BDD4450C2B7E507900BE5FB9 /* Spiegel-Regular.otf in Resources */,
-				BD607CAA2B31AE6200B38591 /* Launch Screen.storyboard in Resources */,
 				BDD444F42B7E507100BE5FB9 /* BeaufortforLOL-Italic.ttf in Resources */,
 				BDD444D72B7E506A00BE5FB9 /* BeaufortforLOL-LightItalic(1).otf in Resources */,
 				BDD444DC2B7E506A00BE5FB9 /* BeaufortforLOL-LightItalic.otf in Resources */,
