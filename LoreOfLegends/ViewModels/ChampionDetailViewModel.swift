@@ -23,9 +23,9 @@ import Foundation
         self.dataService = dataService
     }
 
-    func loadChampionDetails(championID: String) async {
+    func loadChampionDetails(championID: String, locale: String) async {
         self.state = .loading
-        let result = await dataService.fetchChampionDetails(championID: championID)
+        let result = await dataService.fetchChampionDetails(championID: championID, locale: locale)
 
         switch result {
         case .success(let championDetails):
