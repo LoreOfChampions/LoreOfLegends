@@ -12,6 +12,7 @@ import Shimmer
 
 struct ChampionDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var championViewModel: ChampionViewModel
     @StateObject private var viewModel: ChampionDetailViewModel = ChampionDetailViewModel(dataService: LiveDataService())
     @State private var showFullLoreText: Bool = false
     @State private var showFullSpellDescription: Bool = false
@@ -25,11 +26,9 @@ struct ChampionDetailView: View {
     )
 
     let champion: Champion
-    let selectedLocale: String
 
-    init(champion: Champion, selectedLocale: String) {
+    init(champion: Champion) {
         self.champion = champion
-        self.selectedLocale = selectedLocale
     }
 
     var body: some View {
@@ -108,7 +107,7 @@ struct ChampionDetailView: View {
             }
         }
         .task {
-            await viewModel.loadChampionDetails(championID: champion.id, locale: selectedLocale)
+            await viewModel.loadChampionDetails(championID: champion.id, locale: championViewModel.currentLocale)
         }
     }
 
@@ -130,5 +129,5 @@ extension UINavigationController: UIGestureRecognizerDelegate {
 }
 
 #Preview {
-    ChampionDetailView(champion: .exampleChampion, selectedLocale: "cs_CZ")
+    ChampionDetailView(champion: .exampleChampion)
 }

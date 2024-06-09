@@ -10,7 +10,6 @@ import SwiftUI
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
     @State private var shouldPresentSheet: Bool = false
-    @State private var selectedLocale: String = "en_US"
 
     var body: some View {
         NavigationStack {
@@ -19,7 +18,7 @@ struct ChampionsView: View {
                 ProgressView()
             case .loaded(let champions):
                 ScrollView {
-                    ChampionGridView(champions: champions, selectedLocale: selectedLocale)
+                    ChampionGridView(champions: champions)
                 }
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -29,12 +28,7 @@ struct ChampionsView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            shouldPresentSheet = true
-                        } label: {
-                            Image(systemName: "gear")
-                                .foregroundStyle(.gold3)
-                        }
+                        SettingsButton(shouldPresentSheet: $shouldPresentSheet)
                     }
                 }
                 .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
@@ -64,12 +58,23 @@ struct ChampionsView: View {
         }
         .tint(.gold3)
         .fullScreenCover(isPresented: $shouldPresentSheet, content: {
-            SettingsView(selectedLanguage: $selectedLocale, viewModel: viewModel)
+            SettingsView(viewModel: viewModel)
         })
         .task {
             await viewModel.load()
-            await viewModel.loadLatestVersion()
-            await viewModel.loadLocales()
+        }
+    }
+}
+
+struct SettingsButton: View {
+    @Binding var shouldPresentSheet: Bool
+
+    var body: some View {
+        Button {
+            shouldPresentSheet = true
+        } label: {
+            Image(systemName: "gear")
+                .foregroundStyle(.gold3)
         }
     }
 }
