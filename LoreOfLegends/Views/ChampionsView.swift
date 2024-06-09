@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
-    @State private var shouldShowInfoView: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -29,9 +28,6 @@ struct ChampionsView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            withAnimation(.easeIn) {
-                                shouldShowInfoView.toggle()
-                            }
                         } label: {
                             Image(systemName: "info.circle")
                                 .foregroundStyle(.gold3)
@@ -64,9 +60,6 @@ struct ChampionsView: View {
             }
         }
         .tint(.gold3)
-        .overlay {
-            InfoView(shouldShowInfoView: $shouldShowInfoView)
-        }
         .task {
             await viewModel.load()
             await viewModel.loadLatestVersion()
