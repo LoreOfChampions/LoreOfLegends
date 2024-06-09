@@ -33,7 +33,7 @@ import Foundation
         case .failure(let error):
             state = .error(error, retry: { [weak self] in
                 self?.state = .loading
-                await self?.loadChampionDetails(championID: championID)
+                await self?.loadChampionDetails(championID: championID, locale: locale)
             })
         }
     }
