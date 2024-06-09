@@ -34,7 +34,7 @@ class LiveDataService: DataServiceProtocol {
     }
 
     func fetchVersion() async -> Result<String, DataServiceError> {
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/api/versions.json") else {
+        guard let url = URL(string: Constants.versionsURL) else {
             return .failure(.invalidURL)
         }
 
