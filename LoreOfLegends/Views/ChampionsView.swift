@@ -29,12 +29,7 @@ struct ChampionsView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            shouldPresentSheet = true
-                        } label: {
-                            Image(systemName: "gear")
-                                .foregroundStyle(.gold3)
-                        }
+                        SettingsButton(shouldPresentSheet: $shouldPresentSheet)
                     }
                 }
                 .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
@@ -70,6 +65,15 @@ struct ChampionsView: View {
             await viewModel.load()
             await viewModel.loadLatestVersion()
             await viewModel.loadLocales()
+struct SettingsButton: View {
+    @Binding var shouldPresentSheet: Bool
+
+    var body: some View {
+        Button {
+            shouldPresentSheet = true
+        } label: {
+            Image(systemName: "gear")
+                .foregroundStyle(.gold3)
         }
     }
 }
