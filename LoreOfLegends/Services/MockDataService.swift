@@ -33,6 +33,11 @@ class MockDataService: DataServiceProtocol {
     }
 
     func fetchChampionDetails(championID: String) async -> Result<[ChampionDetail], DataServiceError> {
+    func fetchLocales() async -> Result<[String], DataServiceError> {
+        try? await Task.sleep(for: .microseconds(500))
+
+        return .success(["en_US", "cs_CZ"])
+    }
         try? await Task.sleep(for: .milliseconds(500))
 
         let championDetail = ChampionDetail(
