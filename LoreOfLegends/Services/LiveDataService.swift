@@ -51,6 +51,20 @@ class LiveDataService: DataServiceProtocol {
     }
 
     func fetchChampionDetails(championID: String) async -> Result<[ChampionDetail], DataServiceError> {
+    func fetchLocales() async -> Result<[String], DataServiceError> {
+        guard let url = URL(string: Constants.localesURL) else {
+            return .failure(.invalidURL)
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decoder = JSONDecoder()
+            let locales = try decoder.decode([String].self, from: data)
+            return .success(locales)
+        } catch {
+            return .failure(.invalidData)
+        }
+    }
         try? await Task.sleep(for: .milliseconds(500))
         
         let endpoint = await Constants.buildURLEndpointString(version: getVersionString(), championID: "/" + championID)
