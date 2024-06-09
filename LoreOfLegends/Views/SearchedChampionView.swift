@@ -11,11 +11,12 @@ struct SearchedChampionView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
 
     let champion: Champion = Champion.exampleChampion
+    let selectedLocale: String
 
     var body: some View {
         ForEach(viewModel.filteredChampions) { champion in
             NavigationLink {
-                ChampionDetailView(champion: champion)
+                ChampionDetailView(champion: champion, selectedLocale: selectedLocale)
             } label: {
                 ChampionGridCell(champion: champion)
             }
@@ -24,5 +25,5 @@ struct SearchedChampionView: View {
 }
 
 #Preview {
-    SearchedChampionView()
+    SearchedChampionView(selectedLocale: "")
 }

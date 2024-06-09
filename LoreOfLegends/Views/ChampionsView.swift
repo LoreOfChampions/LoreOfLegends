@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
+    @State private var selectedLocale: String = "en_US"
 
     var body: some View {
         NavigationStack {
@@ -17,7 +18,7 @@ struct ChampionsView: View {
                 ProgressView()
             case .loaded(let champions):
                 ScrollView {
-                    ChampionGridView(champions: champions)
+                    ChampionGridView(champions: champions, selectedLocale: selectedLocale)
                 }
                 .toolbar {
                     ToolbarItem(placement: .principal) {

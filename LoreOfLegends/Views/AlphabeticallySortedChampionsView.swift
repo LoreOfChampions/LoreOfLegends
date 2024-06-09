@@ -10,10 +10,12 @@ import SwiftUI
 struct AlphabeticallySortedChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
 
+    let selectedLocale: String
+
     var body: some View {
         ForEach(Array(viewModel.alphabeticallySortedChampions.enumerated()), id: \.offset) { (index, champion) in
             NavigationLink {
-                ChampionDetailView(champion: champion)
+                ChampionDetailView(champion: champion, selectedLocale: selectedLocale)
             } label: {
                 ChampionGridCell(champion: champion)
             }
@@ -27,5 +29,5 @@ struct AlphabeticallySortedChampionsView: View {
 }
 
 #Preview {
-    AlphabeticallySortedChampionsView()
+    AlphabeticallySortedChampionsView(selectedLocale: "")
 }
