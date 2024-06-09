@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD24270E2B46C52200C68E40 /* DetailTitleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */; };
-		BD36C1C72B98682A006164F8 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD36C1C62B98682A006164F8 /* InfoView.swift */; };
 		BD3AA6E42B29F76700DFD78A /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AA6E32B29F76700DFD78A /* ScrollKit */; };
 		BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */; };
 		BD71A2052B225E0B001E5377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD71A2042B225E0B001E5377 /* Assets.xcassets */; };
@@ -41,6 +40,8 @@
 		BD902FBC2B2B8B1D00CE53C9 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */; };
 		BD9BBA032BCEF92900464D67 /* ChampionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */; };
 		BD9BBA052BCF10A700464D67 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9BBA042BCF10A700464D67 /* ResponseData.swift */; };
+		BDB6CF462C1338C70051EE21 /* ChampionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6CF452C1338C70051EE21 /* ChampionTag.swift */; };
+		BDB6CF482C15D2DB0051EE21 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6CF472C15D2DB0051EE21 /* SettingsView.swift */; };
 		BDCDC1432B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */; };
 		BDCDC1452B31E09B00472E2F /* SearchedChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */; };
 		BDD444D62B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDD444CA2B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf */; };
@@ -82,7 +83,6 @@
 
 /* Begin PBXFileReference section */
 		BD24270D2B46C52200C68E40 /* DetailTitleLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleLabelStyle.swift; sourceTree = "<group>"; };
-		BD36C1C62B98682A006164F8 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		BD71A1FD2B225E0A001E5377 /* LoreOfChampions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoreOfChampions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD71A2002B225E0A001E5377 /* LoreOfLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreOfLegends.swift; sourceTree = "<group>"; };
 		BD71A2042B225E0B001E5377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		BD902FBB2B2B8B1D00CE53C9 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetail.swift; sourceTree = "<group>"; };
 		BD9BBA042BCF10A700464D67 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		BDB6CF452C1338C70051EE21 /* ChampionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionTag.swift; sourceTree = "<group>"; };
+		BDB6CF472C15D2DB0051EE21 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BDCDC1422B31DF4B00472E2F /* AlphabeticallySortedChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticallySortedChampionsView.swift; sourceTree = "<group>"; };
 		BDCDC1442B31E09B00472E2F /* SearchedChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedChampionView.swift; sourceTree = "<group>"; };
 		BDD444CA2B7E506A00BE5FB9 /* BeaufortforLOL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeaufortforLOL-Medium.otf"; sourceTree = "<group>"; };
@@ -169,8 +171,8 @@
 		BD36C1C52B98681C006164F8 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				BD36C1C62B98682A006164F8 /* InfoView.swift */,
 				BD736E3D2BCD47D200CEF6AD /* LOCErrorView.swift */,
+				BDB6CF472C15D2DB0051EE21 /* SettingsView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -221,6 +223,7 @@
 				BD71A2482B22674B001E5377 /* Champion.swift */,
 				BD9BBA022BCEF92900464D67 /* ChampionDetail.swift */,
 				BD9BBA042BCF10A700464D67 /* ResponseData.swift */,
+				BDB6CF452C1338C70051EE21 /* ChampionTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,7 +498,6 @@
 				BD71A24F2B2267CF001E5377 /* ChampionGridView.swift in Sources */,
 				BD7A927B2B834FD0001B360F /* PassiveSpellView.swift in Sources */,
 				BD71A23D2B22666C001E5377 /* Constants.swift in Sources */,
-				BD36C1C72B98682A006164F8 /* InfoView.swift in Sources */,
 				BD71A24B2B226782001E5377 /* ChampionsView.swift in Sources */,
 				BD736E362BC9578900CEF6AD /* MockDataService.swift in Sources */,
 				BD7A926F2B834AC3001B360F /* ChampionInfoView.swift in Sources */,
@@ -513,8 +515,10 @@
 				BD7A92732B834D59001B360F /* ChampionSkinsView.swift in Sources */,
 				BD9BBA032BCEF92900464D67 /* ChampionDetail.swift in Sources */,
 				BD71A2432B2266F7001E5377 /* ChampionViewModel.swift in Sources */,
+				BDB6CF482C15D2DB0051EE21 /* SettingsView.swift in Sources */,
 				BD71A2012B225E0A001E5377 /* LoreOfLegends.swift in Sources */,
 				BDCDC1452B31E09B00472E2F /* SearchedChampionView.swift in Sources */,
+				BDB6CF462C1338C70051EE21 /* ChampionTag.swift in Sources */,
 				BD71A2582B226873001E5377 /* ChampionGridCell.swift in Sources */,
 				BD7A92812B8365AD001B360F /* DetailLabelStyle.swift in Sources */,
 				BD736E3E2BCD47D200CEF6AD /* LOCErrorView.swift in Sources */,

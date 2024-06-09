@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
-    @State private var shouldShowInfoView: Bool = false
+    @State private var shouldPresentSheet: Bool = false
+    @State private var selectedLocale: String = "en_US"
 
     var body: some View {
         NavigationStack {
@@ -18,7 +19,7 @@ struct ChampionsView: View {
                 ProgressView()
             case .loaded(let champions):
                 ScrollView {
-                    ChampionGridView(champions: champions)
+                    ChampionGridView(champions: champions, selectedLocale: selectedLocale)
                 }
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -29,11 +30,9 @@ struct ChampionsView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            withAnimation(.easeIn) {
-                                shouldShowInfoView.toggle()
-                            }
+                            shouldPresentSheet = true
                         } label: {
-                            Image(systemName: "info.circle")
+                            Image(systemName: "gear")
                                 .foregroundStyle(.gold3)
                         }
                     }
@@ -64,12 +63,13 @@ struct ChampionsView: View {
             }
         }
         .tint(.gold3)
-        .overlay {
-            InfoView(shouldShowInfoView: $shouldShowInfoView)
-        }
+        .fullScreenCover(isPresented: $shouldPresentSheet, content: {
+            SettingsView(selectedLanguage: $selectedLocale, viewModel: viewModel)
+        })
         .task {
             await viewModel.load()
             await viewModel.loadLatestVersion()
+            await viewModel.loadLocales()
         }
     }
 }

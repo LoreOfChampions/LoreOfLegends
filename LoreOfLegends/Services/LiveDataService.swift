@@ -34,7 +34,7 @@ class LiveDataService: DataServiceProtocol {
     }
 
     func fetchVersion() async -> Result<String, DataServiceError> {
-        guard let url = URL(string: "https://ddragon.leagueoflegends.com/api/versions.json") else {
+        guard let url = URL(string: Constants.versionsURL) else {
             return .failure(.invalidURL)
         }
 
@@ -50,10 +50,25 @@ class LiveDataService: DataServiceProtocol {
         }
     }
 
-    func fetchChampionDetails(championID: String) async -> Result<[ChampionDetail], DataServiceError> {
+    func fetchLocales() async -> Result<[String], DataServiceError> {
+        guard let url = URL(string: Constants.localesURL) else {
+            return .failure(.invalidURL)
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decoder = JSONDecoder()
+            let locales = try decoder.decode([String].self, from: data)
+            return .success(locales)
+        } catch {
+            return .failure(.invalidData)
+        }
+    }
+
+    func fetchChampionDetails(championID: String, locale: String) async -> Result<[ChampionDetail], DataServiceError> {
         try? await Task.sleep(for: .milliseconds(500))
         
-        let endpoint = await Constants.buildURLEndpointString(version: getVersionString(), championID: "/" + championID)
+        let endpoint = await Constants.buildURLEndpointString(version: getVersionString(), locale: locale, championID: "/" + championID)
 
         guard let url = URL(string: endpoint) else {
             return .failure(.invalidURL)

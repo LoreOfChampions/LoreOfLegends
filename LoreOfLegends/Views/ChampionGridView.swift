@@ -14,18 +14,19 @@ struct ChampionGridView: View {
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
     
     let champions: [Champion]
+    let selectedLocale: String
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
             if viewModel.selectedChampion != nil || !viewModel.searchingQuery.isEmpty {
-                SearchedChampionView()
+                SearchedChampionView(selectedLocale: selectedLocale)
             } else {
-                AlphabeticallySortedChampionsView()
+                AlphabeticallySortedChampionsView(selectedLocale: selectedLocale)
             }
         }
     }
 }
 
 #Preview {
-    ChampionGridView(champions: [.exampleChampion])
+    ChampionGridView(champions: [.exampleChampion], selectedLocale: "")
 }

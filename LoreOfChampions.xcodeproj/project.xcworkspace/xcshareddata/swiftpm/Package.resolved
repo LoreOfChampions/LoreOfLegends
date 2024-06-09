@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danielsaidi/ScrollKit.git",
       "state" : {
-        "revision" : "7c9530ceda4c9717679d7a483d77753eeb5acccf",
-        "version" : "0.5.0"
+        "revision" : "b3142033da3769046770e38d459203756db879b5",
+        "version" : "0.5.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/markiv/SwiftUI-Shimmer",
       "state" : {
-        "revision" : "5659a623567cefe258d1e3e67cb65585fbb6ecb6",
-        "version" : "1.4.2"
+        "revision" : "e3aa4226b0fafe345ca1c920f516b6a2f3e0aacc",
+        "version" : "1.5.0"
       }
     }
   ],

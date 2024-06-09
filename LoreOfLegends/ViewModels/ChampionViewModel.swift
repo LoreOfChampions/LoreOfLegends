@@ -9,7 +9,9 @@ import Foundation
 
 @MainActor final class ChampionViewModel: ObservableObject {
     @Published var champions: [Champion] = []
+    @Published var locales: [String] = []
     @Published var selectedChampion: Champion?
+    @Published var currentLocale = "en_US"
     @Published var searchingQuery = ""
     @Published var state: State = .loading
     @Published var currentPage = 1
@@ -67,6 +69,17 @@ import Foundation
         switch result {
         case .success(let version):
             latestVersion = version
+        case .failure(let error):
+            print(error)
+        }
+    }
+
+    func loadLocales() async {
+        let result = await dataService.fetchLocales()
+
+        switch result {
+        case .success(let locales):
+            self.locales = locales
         case .failure(let error):
             print(error)
         }

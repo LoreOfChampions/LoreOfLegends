@@ -23,9 +23,9 @@ import Foundation
         self.dataService = dataService
     }
 
-    func loadChampionDetails(championID: String) async {
+    func loadChampionDetails(championID: String, locale: String) async {
         self.state = .loading
-        let result = await dataService.fetchChampionDetails(championID: championID)
+        let result = await dataService.fetchChampionDetails(championID: championID, locale: locale)
 
         switch result {
         case .success(let championDetails):
@@ -33,26 +33,8 @@ import Foundation
         case .failure(let error):
             state = .error(error, retry: { [weak self] in
                 self?.state = .loading
-                await self?.loadChampionDetails(championID: championID)
+                await self?.loadChampionDetails(championID: championID, locale: locale)
             })
-        }
-    }
-
-    func setRoleIcon(for tag: String) -> String {
-        if tag == "Assassin" {
-            return "assasinIcon"
-        } else if tag == "Fighter" {
-            return "fighterIcon"
-        } else if tag == "Mage" {
-            return "mageIcon"
-        } else if tag == "Marksman" {
-            return "marksmanIcon"
-        } else if tag == "Support" {
-            return "supportIcon"
-        } else if tag == "Tank" {
-            return "tankIcon"
-        } else {
-            return ""
         }
     }
 }

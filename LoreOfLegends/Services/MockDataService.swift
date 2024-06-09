@@ -20,7 +20,7 @@ class MockDataService: DataServiceProtocol {
                 sprite: "champion0.png",
                 group: "champion", x: 0, y: 0, w: 48, h: 48
             ),
-            tags: ["Fighter", "Tank"]
+            tags: [.assassin, .fighter]
         )
 
         return .success([champion])
@@ -32,7 +32,13 @@ class MockDataService: DataServiceProtocol {
         return .success("1.0.0")
     }
 
-    func fetchChampionDetails(championID: String) async -> Result<[ChampionDetail], DataServiceError> {
+    func fetchLocales() async -> Result<[String], DataServiceError> {
+        try? await Task.sleep(for: .microseconds(500))
+
+        return .success(["en_US", "cs_CZ"])
+    }
+
+    func fetchChampionDetails(championID: String, locale: String = "en_US") async -> Result<[ChampionDetail], DataServiceError> {
         try? await Task.sleep(for: .milliseconds(500))
 
         let championDetail = ChampionDetail(
@@ -75,7 +81,7 @@ class MockDataService: DataServiceProtocol {
                     h: 48
                 )
             ),
-            tags: ["Fighter", "Tank"]
+            tags: [.mage, .tank]
         )
 
         return .success([championDetail])

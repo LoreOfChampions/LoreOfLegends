@@ -11,14 +11,14 @@ struct ChampionInfoView: View {
     let viewModel: ChampionDetailViewModel
     let name: String
     let title: String
-    let tags: [String]
+    let tags: [ChampionTag]
     let visibleRatio: CGFloat
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 5) {
                 ForEach(tags, id: \.self) { tag in
-                    Image(viewModel.setRoleIcon(for: tag))
+                    Image(tag.championIcon)
                         .resizable()
                         .frame(width: 30, height: 30)
                         .padding(7)
@@ -40,5 +40,5 @@ struct ChampionInfoView: View {
 }
 
 #Preview {
-    ChampionInfoView(viewModel: ChampionDetailViewModel(dataService: MockDataService()), name: "", title: "", tags: [""], visibleRatio: 0)
+    ChampionInfoView(viewModel: ChampionDetailViewModel(dataService: MockDataService()), name: "", title: "", tags: [.assassin], visibleRatio: 0)
 }

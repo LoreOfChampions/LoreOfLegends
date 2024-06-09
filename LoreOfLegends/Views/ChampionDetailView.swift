@@ -25,9 +25,11 @@ struct ChampionDetailView: View {
     )
 
     let champion: Champion
+    let selectedLocale: String
 
-    init(champion: Champion) {
+    init(champion: Champion, selectedLocale: String) {
         self.champion = champion
+        self.selectedLocale = selectedLocale
     }
 
     var body: some View {
@@ -106,7 +108,7 @@ struct ChampionDetailView: View {
             }
         }
         .task {
-            await viewModel.loadChampionDetails(championID: champion.id)
+            await viewModel.loadChampionDetails(championID: champion.id, locale: selectedLocale)
         }
     }
 
@@ -128,5 +130,5 @@ extension UINavigationController: UIGestureRecognizerDelegate {
 }
 
 #Preview {
-    ChampionDetailView(champion: .exampleChampion)
+    ChampionDetailView(champion: .exampleChampion, selectedLocale: "cs_CZ")
 }
