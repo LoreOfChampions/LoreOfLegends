@@ -63,6 +63,7 @@ struct ChampionsView: View {
         .task {
             await viewModel.load()
             await viewModel.loadLatestVersion()
+            await viewModel.loadLocales()
         }
     }
 }
