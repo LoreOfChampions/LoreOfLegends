@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor final class ChampionViewModel: ObservableObject {
+    @AppStorage("currentLocale") var currentLocale: String = "en_US"
     @Published var champions: [Champion] = []
     @Published var locales: [String] = []
     @Published var selectedChampion: Champion?
-    @Published var currentLocale = "en_US"
     @Published var searchingQuery = ""
     @Published var state: State = .loading
     @Published var currentPage = 1
