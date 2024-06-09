@@ -15,7 +15,7 @@ struct ChampionDetail: Codable, Identifiable, Hashable {
     let skins: [Skin]?
     let spells: [Spell]?
     let passive: Passive?
-    let tags: [String]
+    let tags: [ChampionTag]
 
     var formattedTag: String {
         var result = ""
@@ -62,7 +62,7 @@ struct ChampionDetail: Codable, Identifiable, Hashable {
                 w: 48,
                 h: 48
             )),
-        tags: ["Fighter", "Tank"]
+        tags: [.assassin, .marksman]
     )
 
     static func == (lhs: ChampionDetail, rhs: ChampionDetail) -> Bool {

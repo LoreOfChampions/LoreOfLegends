@@ -36,10 +36,10 @@ struct ChampionSplashImageView: View {
     /// Many champions consisting from 2 names put together backend returns as `FirstSecond`, but in this case it returns it as `Firstsecond`
     /// So I wrote this simple method to always return correct `string` when `championID.contains("Fiddle")`
     private func returnCorrectedID(championID: String) -> String {
-        if championDetail.id.contains("Fiddle") {
+        if championID.contains("Fiddle") {
             return "FiddleSticks"
         } else {
-            return championDetail.id
+            return championID
         }
     }
 }

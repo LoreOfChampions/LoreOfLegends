@@ -11,13 +11,13 @@ struct Champion: Codable, Identifiable, Hashable {
     let version: String?
     let id, name: String
     let image: Image
-    let tags: [String]
+    let tags: [ChampionTag]
 
     var formattedTag: String {
         var result = ""
 
         for tag in tags {
-            result += "\(tag)" + (tag != tags.last ? ", " : "")
+            result += "\(tag.rawValue)" + (tag != tags.last ? ", " : "")
         }
 
         return result
@@ -32,7 +32,7 @@ struct Champion: Codable, Identifiable, Hashable {
             sprite: "champion0.png",
             group: "champion", x: 0, y: 0, w: 48, h: 48
         ),
-        tags: ["Fighter", "Tank"]
+        tags: [.fighter, .tank]
     )
 
     static func == (lhs: Champion, rhs: Champion) -> Bool {
