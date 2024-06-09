@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var selectedLanguage: String
     let viewModel: ChampionViewModel
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("General") {
-                    LanguagePickerView(selectedLanguage: $selectedLanguage, viewModel: viewModel)
+                    LanguagePickerView()
                 }
             }
             .navigationTitle("Settings")
@@ -33,11 +32,10 @@ struct SettingsView: View {
 }
 
 struct LanguagePickerView: View {
-    @Binding var selectedLanguage: String
-    let viewModel: ChampionViewModel
+    @EnvironmentObject private var viewModel: ChampionViewModel
 
     var body: some View {
-        Picker("Languages", selection: $selectedLanguage) {
+        Picker("Languages", selection: $viewModel.currentLocale) {
             ForEach(viewModel.locales, id: \.self) { locale in
                 Text(Locale(identifier: locale).localizedString(forIdentifier: locale) ?? "")
                     .foregroundStyle(.gold3)

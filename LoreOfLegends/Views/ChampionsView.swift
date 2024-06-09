@@ -10,7 +10,6 @@ import SwiftUI
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
     @State private var shouldPresentSheet: Bool = false
-    @State private var selectedLocale: String = "en_US"
 
     var body: some View {
         NavigationStack {
@@ -19,7 +18,7 @@ struct ChampionsView: View {
                 ProgressView()
             case .loaded(let champions):
                 ScrollView {
-                    ChampionGridView(champions: champions, selectedLocale: selectedLocale)
+                    ChampionGridView(champions: champions)
                 }
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -59,7 +58,7 @@ struct ChampionsView: View {
         }
         .tint(.gold3)
         .fullScreenCover(isPresented: $shouldPresentSheet, content: {
-            SettingsView(selectedLanguage: $selectedLocale, viewModel: viewModel)
+            SettingsView(viewModel: viewModel)
         })
         .task {
             await viewModel.load()
