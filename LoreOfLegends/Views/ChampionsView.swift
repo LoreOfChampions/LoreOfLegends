@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChampionsView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
+    @State private var shouldPresentSheet: Bool = false
     @State private var selectedLocale: String = "en_US"
 
     var body: some View {
@@ -29,8 +30,9 @@ struct ChampionsView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
+                            shouldPresentSheet = true
                         } label: {
-                            Image(systemName: "info.circle")
+                            Image(systemName: "gear")
                                 .foregroundStyle(.gold3)
                         }
                     }
@@ -61,6 +63,9 @@ struct ChampionsView: View {
             }
         }
         .tint(.gold3)
+        .fullScreenCover(isPresented: $shouldPresentSheet, content: {
+            SettingsView(selectedLanguage: $selectedLocale, viewModel: viewModel)
+        })
         .task {
             await viewModel.load()
             await viewModel.loadLatestVersion()
