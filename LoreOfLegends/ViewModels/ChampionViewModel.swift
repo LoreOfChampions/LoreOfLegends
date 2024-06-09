@@ -49,6 +49,9 @@ import Foundation
     }
 
     func load() async {
+        await loadLatestVersion()
+        await loadLocales()
+
         let result = await dataService.getChampions()
 
         switch result {
