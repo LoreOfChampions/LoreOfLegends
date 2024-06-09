@@ -63,7 +63,7 @@ import Foundation
         }
     }
 
-    func loadLatestVersion() async {
+    private func loadLatestVersion() async {
         let result = await dataService.fetchVersion()
 
         switch result {
@@ -74,7 +74,7 @@ import Foundation
         }
     }
 
-    func loadLocales() async {
+    private func loadLocales() async {
         let result = await dataService.fetchLocales()
 
         switch result {
