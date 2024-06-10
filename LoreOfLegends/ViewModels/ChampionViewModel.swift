@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor final class ChampionViewModel: ObservableObject {
-    @AppStorage("currentLocale") var currentLocale: String = "en_US"
+    @AppStorage("selectedLocale") var selectedLocale: String = "en_US"
     @Published var champions: [Champion] = []
     @Published var locales: [Locale] = []
     @Published var selectedChampion: Champion?
