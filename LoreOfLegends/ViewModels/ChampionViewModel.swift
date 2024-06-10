@@ -50,8 +50,9 @@ import SwiftUI
     }
 
     func load() async {
-        await loadLatestVersion()
-        await loadLocales()
+        async let loadLocales = loadLocales()
+        async let loadLatestVersion = loadLatestVersion()
+        async let loadChampionsData = dataService.getChampions()
 
         let result = await dataService.getChampions()
 
