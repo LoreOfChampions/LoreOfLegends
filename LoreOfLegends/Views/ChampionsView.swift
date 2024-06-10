@@ -58,7 +58,7 @@ struct ChampionsView: View {
         }
         .tint(.gold3)
         .fullScreenCover(isPresented: $shouldPresentSheet, content: {
-            SettingsView(viewModel: viewModel)
+            SettingsView()
         })
         .task {
             await viewModel.load()
