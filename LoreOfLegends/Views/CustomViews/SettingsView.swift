@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    let viewModel: ChampionViewModel
+    @EnvironmentObject private var viewModel: ChampionViewModel
 
     var body: some View {
         NavigationStack {
@@ -24,8 +24,7 @@ struct SettingsView: View {
                     SettingsDismissButton()
                 }
             }
-
-            VersionView(viewModel: viewModel)
+            VersionView()
         }
         .tint(.gold3)
     }
@@ -61,7 +60,7 @@ struct SettingsDismissButton: View {
 }
 
 struct VersionView: View {
-    let viewModel: ChampionViewModel
+    @EnvironmentObject private var viewModel: ChampionViewModel
 
     var body: some View {
         HStack(alignment: .lastTextBaseline) {
