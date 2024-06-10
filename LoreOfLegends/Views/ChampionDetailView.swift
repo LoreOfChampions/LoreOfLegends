@@ -107,7 +107,7 @@ struct ChampionDetailView: View {
             }
         }
         .task {
-            await viewModel.loadChampionDetails(championID: champion.id, locale: championViewModel.currentLocale)
+            await viewModel.loadChampionDetails(championID: champion.id, locale: championViewModel.selectedLocale)
         }
     }
 
