@@ -67,14 +67,15 @@ import SwiftUI
         }
     }
 
-    private func loadLatestVersion() async {
+    private func loadLatestVersion() async -> String {
         let result = await dataService.fetchVersion()
 
         switch result {
         case .success(let version):
-            latestVersion = version
+            return version
         case .failure(let error):
             print(error)
+            return ""
         }
     }
 
