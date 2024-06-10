@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor final class ChampionViewModel: ObservableObject {
     @AppStorage("currentLocale") var currentLocale: String = "en_US"
     @Published var champions: [Champion] = []
-    @Published var locales: [String] = []
+    @Published var locales: [Locale] = []
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
     @Published var state: State = .loading
@@ -78,14 +78,15 @@ import SwiftUI
         }
     }
 
-    private func loadLocales() async {
+    private func loadLocales() async -> [Locale] {
         let result = await dataService.fetchLocales()
 
         switch result {
         case .success(let locales):
-            self.locales = locales
+            return locales
         case .failure(let error):
             print(error)
+            return []
         }
     }
 }
