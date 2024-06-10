@@ -50,7 +50,7 @@ class LiveDataService: DataServiceProtocol {
         }
     }
 
-    func fetchLocales() async -> Result<[String], DataServiceError> {
+    func fetchLocales() async -> Result<[Locale], DataServiceError> {
         guard let url = URL(string: Constants.localesURL) else {
             return .failure(.invalidURL)
         }
@@ -59,7 +59,7 @@ class LiveDataService: DataServiceProtocol {
             let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
             let locales = try decoder.decode([String].self, from: data)
-            return .success(locales)
+            return .success(locales.map({ Locale(identifier: $0)} ))
         } catch {
             return .failure(.invalidData)
         }
