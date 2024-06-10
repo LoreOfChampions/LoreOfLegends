@@ -50,10 +50,14 @@ import SwiftUI
     }
 
     func load() async {
-        await loadLatestVersion()
-        await loadLocales()
+        async let loadLocales = loadLocales()
+        async let loadLatestVersion = loadLatestVersion()
+        async let loadChampionsData = dataService.getChampions()
 
-        let result = await dataService.getChampions()
+        let (locales, latestVersion, result) = await (loadLocales, loadLatestVersion, loadChampionsData)
+
+        self.latestVersion = latestVersion
+        self.locales = locales
 
         switch result {
         case .success(let champions):
@@ -67,14 +71,15 @@ import SwiftUI
         }
     }
 
-    private func loadLatestVersion() async {
+    private func loadLatestVersion() async -> String {
         let result = await dataService.fetchVersion()
 
         switch result {
         case .success(let version):
-            latestVersion = version
+            return version
         case .failure(let error):
             print(error)
+            return ""
         }
     }
 
