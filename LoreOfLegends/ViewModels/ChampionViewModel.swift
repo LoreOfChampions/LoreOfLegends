@@ -54,7 +54,10 @@ import SwiftUI
         async let loadLatestVersion = loadLatestVersion()
         async let loadChampionsData = dataService.getChampions()
 
-        let result = await dataService.getChampions()
+        let (locales, latestVersion, result) = await (loadLocales, loadLatestVersion, loadChampionsData)
+
+        self.latestVersion = latestVersion
+        self.locales = locales
 
         switch result {
         case .success(let champions):
