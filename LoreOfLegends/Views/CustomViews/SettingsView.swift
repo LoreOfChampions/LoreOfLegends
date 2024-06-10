@@ -35,10 +35,11 @@ struct LanguagePickerView: View {
     @EnvironmentObject private var viewModel: ChampionViewModel
 
     var body: some View {
-        Picker("Languages", selection: $viewModel.currentLocale) {
+        Picker("Languages", selection: $viewModel.selectedLocale) {
             ForEach(viewModel.locales, id: \.self) { locale in
-                Text(Locale(identifier: locale).localizedString(forIdentifier: locale) ?? "")
+                Text(locale.localizedString(forIdentifier: locale.identifier) ?? "")
                     .foregroundStyle(.gold3)
+                    .tag(locale.identifier)
             }
         }
         .pickerStyle(.navigationLink)
