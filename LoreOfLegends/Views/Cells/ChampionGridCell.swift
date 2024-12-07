@@ -11,11 +11,14 @@ import Shimmer
 
 struct ChampionGridCell: View {
     let champion: Champion
+    
+    let isFavorited: Bool
+    let onToggleFavorite: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             CachedAsyncImage(
-                url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/\(champion.id)_0.jpg"),
+                url: URL(string: Constants.baseURL + "img/champion/loading/\(champion.id)_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
@@ -34,6 +37,17 @@ struct ChampionGridCell: View {
                                 .shimmering()
                         }
                 }
+                .overlay {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            FavoriteIconView(isFavorited: isFavorited, onToggleFavorite: {
+                                onToggleFavorite()
+                            })
+                        }
+                    }
+                }
 
             Text(champion.name)
                 .detailLabelStyle(fontSize: 26, color: .gold2)
@@ -48,5 +62,5 @@ struct ChampionGridCell: View {
 }
 
 #Preview {
-    ChampionGridCell(champion: Champion.exampleChampion)
+    ChampionGridCell(champion: Champion.exampleChampion, isFavorited: true, onToggleFavorite: {})
 }
