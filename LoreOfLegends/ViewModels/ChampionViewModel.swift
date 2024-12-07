@@ -85,6 +85,27 @@ import SwiftUI
             })
         }
     }
+    func isFavorited(champion: Champion) -> Bool {
+        return favoriteStates[champion.id] ?? false
+    }
+    
+    func toggleFavorite(for champion: Champion) {
+        favoriteStates[champion.id] = !(favoriteStates[champion.id] ?? false)
+    }
+    
+    private func favoriteChampionIDsToDictionary() -> [String: Bool] {
+        guard let ids = try? JSONDecoder().decode([String].self, from: favoriteChampionIDs) else {
+            return [:]
+        }
+        return Dictionary(uniqueKeysWithValues: ids.map { ($0, true) })
+    }
+    
+    private func saveFavoriteChampionIDs(_ dictionary: [String: Bool]) {
+        let ids = dictionary.filter { $0.value }.map { $0.key }
+        if let data = try? JSONEncoder().encode(ids) {
+            favoriteChampionIDs = data
+        }
+    }
 
     private func loadLatestVersion() async -> String {
         let result = await dataService.fetchVersion()
