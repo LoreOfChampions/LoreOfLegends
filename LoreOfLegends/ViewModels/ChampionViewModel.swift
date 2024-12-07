@@ -27,6 +27,17 @@ import SwiftUI
     }
     
     private let pageSize = 20
+    
+    let dataService: DataServiceProtocol
+    
+    var favoriteStates: [String:Bool] {
+        get {
+            favoriteChampionIDsToDictionary()
+        }
+        set {
+            saveFavoriteChampionIDs(newValue)
+        }
+    }
 
     var filteredChampions: [Champion] {
         if let champion = selectedChampion {
