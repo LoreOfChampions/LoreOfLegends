@@ -17,7 +17,9 @@ struct SearchedChampionView: View {
             NavigationLink {
                 ChampionDetailView(champion: champion)
             } label: {
-                ChampionGridCell(champion: champion)
+                ChampionGridCell(champion: champion, isFavorited: viewModel.isFavorited(champion: champion)) {
+                    viewModel.toggleFavorite(for: champion)
+                }
             }
         }
     }
