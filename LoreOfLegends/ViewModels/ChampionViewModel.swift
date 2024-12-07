@@ -10,6 +10,8 @@ import SwiftUI
 
 @MainActor final class ChampionViewModel: ObservableObject {
     @AppStorage("selectedLocale") var selectedLocale: String = "en_US"
+    @AppStorage("FavoriteChampionIDs") private var favoriteChampionIDs: Data = Data()
+    
     @Published var champions: [Champion] = []
     @Published var locales: [Locale] = []
     @Published var selectedChampion: Champion?
