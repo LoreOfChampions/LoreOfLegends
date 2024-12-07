@@ -17,30 +17,26 @@ struct ChampionsView: View {
             case .loading:
                 ProgressView()
             case .loaded(let champions):
-                ScrollView {
+                TabView {
                     ChampionGridView(champions: champions)
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
+                    
+                    FavoriteListView(champions: viewModel.favoritedChampions)
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "star")
+                                Text("Favorites")
+                            }
+                        }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text(Constants.appTitle)
-                            .detailLabelStyle(fontSize: 30, color: .gold3)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        SettingsButton(shouldPresentSheet: $shouldPresentSheet)
-                    }
-                }
-                .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
                 .refreshable {
                     await viewModel.load()
                 }
-                .overlay {
-                    if !viewModel.searchingQuery.isEmpty && viewModel.filteredChampions.isEmpty {
-                        ContentUnavailableView.search(text: viewModel.searchingQuery)
-                    }
-                }
-                .padding(.horizontal, 19)
                 .scrollIndicators(.hidden)
                 .background(.darkBackground)
             case .error(let dataServiceError, let retry):
@@ -57,24 +53,8 @@ struct ChampionsView: View {
             }
         }
         .tint(.gold3)
-        .fullScreenCover(isPresented: $shouldPresentSheet, content: {
-            SettingsView()
-        })
         .task {
             await viewModel.load()
-        }
-    }
-}
-
-struct SettingsButton: View {
-    @Binding var shouldPresentSheet: Bool
-
-    var body: some View {
-        Button {
-            shouldPresentSheet = true
-        } label: {
-            Image(systemName: "gear")
-                .foregroundStyle(.gold3)
         }
     }
 }
