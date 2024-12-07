@@ -10,6 +10,8 @@ import SwiftUI
 
 @MainActor final class ChampionViewModel: ObservableObject {
     @AppStorage("selectedLocale") var selectedLocale: String = "en_US"
+    @AppStorage("FavoriteChampionIDs") private var favoriteChampionIDs: Data = Data()
+    
     @Published var champions: [Champion] = []
     @Published var locales: [Locale] = []
     @Published var selectedChampion: Champion?
@@ -25,6 +27,17 @@ import SwiftUI
     }
     
     private let pageSize = 20
+    
+    let dataService: DataServiceProtocol
+    
+    var favoriteStates: [String:Bool] {
+        get {
+            favoriteChampionIDsToDictionary()
+        }
+        set {
+            saveFavoriteChampionIDs(newValue)
+        }
+    }
 
     var filteredChampions: [Champion] {
         if let champion = selectedChampion {
@@ -42,8 +55,10 @@ import SwiftUI
     var alphabeticallySortedChampions: [Champion] {
         return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
     }
-
-    let dataService: DataServiceProtocol
+    
+    var favoritedChampions: [Champion] {
+        alphabeticallySortedChampions.filter { isFavorited(champion: $0) }
+    }
 
     init(dataService: DataServiceProtocol) {
         self.dataService = dataService
@@ -68,6 +83,27 @@ import SwiftUI
                 self?.state = .loading
                 await self?.load()
             })
+        }
+    }
+    func isFavorited(champion: Champion) -> Bool {
+        return favoriteStates[champion.id] ?? false
+    }
+    
+    func toggleFavorite(for champion: Champion) {
+        favoriteStates[champion.id] = !(favoriteStates[champion.id] ?? false)
+    }
+    
+    private func favoriteChampionIDsToDictionary() -> [String: Bool] {
+        guard let ids = try? JSONDecoder().decode([String].self, from: favoriteChampionIDs) else {
+            return [:]
+        }
+        return Dictionary(uniqueKeysWithValues: ids.map { ($0, true) })
+    }
+    
+    private func saveFavoriteChampionIDs(_ dictionary: [String: Bool]) {
+        let ids = dictionary.filter { $0.value }.map { $0.key }
+        if let data = try? JSONEncoder().encode(ids) {
+            favoriteChampionIDs = data
         }
     }
 

@@ -11,6 +11,13 @@ import SwiftUI
 struct LoreOfLegends: App {
     init() {
         Fonts.registerFontsIfNeeded()
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.gold2]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.gold2]
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 
     var body: some Scene {
