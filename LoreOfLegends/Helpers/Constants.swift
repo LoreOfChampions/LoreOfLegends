@@ -10,6 +10,7 @@ import SwiftUI
 
 enum Constants {
     static let appTitle = "LoreOfChampions"
+    static let favoritesNavigationTitle = "Favorite Champions"
     static let baseURL = "https://ddragon.leagueoflegends.com/cdn/"
     static let versionsURL = "https://ddragon.leagueoflegends.com/api/versions.json"
     static let localesURL = "https://ddragon.leagueoflegends.com/cdn/languages.json"
