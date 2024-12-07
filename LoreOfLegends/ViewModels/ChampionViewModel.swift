@@ -55,8 +55,10 @@ import SwiftUI
     var alphabeticallySortedChampions: [Champion] {
         return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
     }
-
-    let dataService: DataServiceProtocol
+    
+    var favoritedChampions: [Champion] {
+        alphabeticallySortedChampions.filter { isFavorited(champion: $0) }
+    }
 
     init(dataService: DataServiceProtocol) {
         self.dataService = dataService
