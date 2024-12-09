@@ -52,7 +52,7 @@ struct FavoriteListView: View {
                                     .padding()
                                 }
                         }
-                        .padding([.top, .bottom])
+                        .padding(.top, 10)
                     }
                 }
             }
