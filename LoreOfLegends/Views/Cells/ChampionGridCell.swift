@@ -11,7 +11,6 @@ import Shimmer
 
 struct ChampionGridCell: View {
     let champion: Champion
-    
     let isFavorited: Bool
     let onToggleFavorite: () -> Void
 

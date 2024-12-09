@@ -67,7 +67,9 @@ struct ChampionDetailView: View {
                                             h: 0
                                         )
                                     ),
-                                    spells: detail.spells ?? [])
+                                    spells: detail.spells ?? [],
+                                    currentVersion: championViewModel.latestVersion
+                                )
                             }
                             .padding(.horizontal)
                             .padding(.bottom, 40)

@@ -12,12 +12,13 @@ struct SpellView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel
 
     let spells: [ChampionDetail.Spell]
+    let currentVersion: String
 
     var body: some View {
         ForEach(spells) { spell in
             HStack(alignment: .top, spacing: 15) {
                 CachedAsyncImage(
-                    url: URL(string: URLs.baseURL + "14.7.1/img/spell/\(spell.id).png"),
+                    url: URL(string: URLs.baseURL + "\(currentVersion)/img/spell/\(spell.id).png"),
                     urlCache: URLCache.imageCache) { image in
                         image
                             .resizable()
@@ -44,5 +45,5 @@ struct SpellView: View {
 }
 
 #Preview {
-    SpellView(spells: [ChampionDetail.Spell(id: "", name: "", description: "")])
+    SpellView(spells: [ChampionDetail.Spell(id: "", name: "", description: "")], currentVersion: "")
 }

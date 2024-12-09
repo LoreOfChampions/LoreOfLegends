@@ -12,11 +12,12 @@ struct PassiveSpellView: View {
     @EnvironmentObject private var viewModel: ChampionDetailViewModel
 
     let passive: ChampionDetail.Passive
+    let currentVersion: String
 
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             CachedAsyncImage(
-                url: URL(string: URLs.baseURL + "14.7.1/img/passive/\(passive.image.full)"),
+                url: URL(string: URLs.baseURL + "\(currentVersion)/img/passive/\(passive.image.full)"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
@@ -47,5 +48,5 @@ struct PassiveSpellView: View {
 }
 
 #Preview {
-    PassiveSpellView(passive: .init(name: "", description: "", image: .init(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0)))
+    PassiveSpellView(passive: .init(name: "", description: "", image: .init(full: "", sprite: "", group: "", x: 0, y: 0, w: 0, h: 0)), currentVersion: "")
 }
