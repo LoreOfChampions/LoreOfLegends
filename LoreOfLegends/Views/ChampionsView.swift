@@ -21,23 +21,19 @@ struct ChampionsView: View {
                     ChampionGridView(champions: champions)
                         .tabItem {
                             VStack {
-                                Image(systemName: "magnifyingglass")
-                                Text("Search")
+                                SFSymbols.magnifyingGlass
+                                Text(Constants.search)
                             }
                         }
                     
                     FavoriteListView(champions: viewModel.favoritedChampions)
                         .tabItem {
                             VStack {
-                                Image(systemName: "star")
-                                Text("Favorites")
+                                SFSymbols.star
+                                Text(Constants.favorites)
                             }
                         }
                 }
-                .refreshable {
-                    await viewModel.load()
-                }
-                .scrollIndicators(.hidden)
                 .background(.darkBackground)
             case .error(let dataServiceError, let retry):
                 LOCErrorView(

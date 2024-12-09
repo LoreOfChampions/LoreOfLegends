@@ -17,7 +17,7 @@ struct SpellView: View {
         ForEach(spells) { spell in
             HStack(alignment: .top, spacing: 15) {
                 CachedAsyncImage(
-                    url: URL(string: Constants.baseURL + "14.7.1/img/spell/\(spell.id).png"),
+                    url: URL(string: URLs.baseURL + "14.7.1/img/spell/\(spell.id).png"),
                     urlCache: URLCache.imageCache) { image in
                         image
                             .resizable()

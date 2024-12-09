@@ -18,7 +18,7 @@ struct ChampionGridCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             CachedAsyncImage(
-                url: URL(string: Constants.baseURL + "img/champion/loading/\(champion.id)_0.jpg"),
+                url: URL(string: URLs.baseURL + "img/champion/loading/\(champion.id)_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()

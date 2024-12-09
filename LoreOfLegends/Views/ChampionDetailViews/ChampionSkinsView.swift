@@ -14,7 +14,7 @@ struct ChampionSkinsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("Skins", systemImage: "person.and.person.fill")
+            Label(Constants.skins, systemImage: SFSymbols.doublePersonFill)
                 .detailTitleLabelStyle()
                 .padding(.bottom, 5)
 
@@ -23,7 +23,7 @@ struct ChampionSkinsView: View {
                     ForEach(skins, id: \.id) { skin in
                         VStack(spacing: 10) {
                             CachedAsyncImage(
-                                url: URL(string: Constants.baseURL + "img/champion/splash/\(championID)_\(skin.num).jpg"),
+                                url: URL(string: URLs.baseURL + "img/champion/splash/\(championID)_\(skin.num).jpg"),
                                 urlCache: URLCache.imageCache) { image in
                                     image
                                         .resizable()

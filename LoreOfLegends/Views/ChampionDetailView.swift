@@ -100,7 +100,7 @@ struct ChampionDetailView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.left")
+                    SFSymbols.chevronLeft
                         .resizable()
                         .foregroundStyle(.gold3)
                 }
@@ -117,7 +117,7 @@ struct ChampionDetailView: View {
     }
 }
 
-extension UINavigationController: UIGestureRecognizerDelegate {
+extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self

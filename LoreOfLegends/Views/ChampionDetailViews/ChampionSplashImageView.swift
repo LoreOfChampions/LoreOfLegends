@@ -14,7 +14,7 @@ struct ChampionSplashImageView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             CachedAsyncImage(
-                url: URL(string:  Constants.baseURL + "img/champion/centered/\(returnCorrectedID(championID: championDetail.id))_0.jpg"),
+                url: URL(string:  URLs.baseURL + "img/champion/centered/\(returnCorrectedID(championID: championDetail.id))_0.jpg"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()

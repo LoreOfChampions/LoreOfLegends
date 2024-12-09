@@ -8,8 +8,8 @@
 import Foundation
 
 @MainActor final class ChampionDetailViewModel: ObservableObject {
-    @Published var championDetail: ChampionDetail = .exampleChampionDetail
-    @Published var state: State = .loading
+    @Published private(set) var championDetail: ChampionDetail = .exampleChampionDetail
+    @Published private(set) var state: State = .loading
 
     enum State {
         case loading
@@ -18,10 +18,14 @@ import Foundation
     }
 
     let dataService: DataServiceProtocol
+    
+    // MARK: - Init
 
     init(dataService: DataServiceProtocol) {
         self.dataService = dataService
     }
+    
+    // MARK: - Methods
 
     func loadChampionDetails(championID: String, locale: String) async {
         self.state = .loading

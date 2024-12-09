@@ -9,16 +9,18 @@ import Foundation
 import SwiftUI
 
 @MainActor final class ChampionViewModel: ObservableObject {
-    @AppStorage("selectedLocale") var selectedLocale: String = "en_US"
     @AppStorage("FavoriteChampionIDs") private var favoriteChampionIDs: Data = Data()
+    @AppStorage("selectedLocale") var selectedLocale: String = "en_US"
     
-    @Published var champions: [Champion] = []
-    @Published var locales: [Locale] = []
+    @Published private(set) var champions: [Champion] = []
+    @Published private(set) var locales: [Locale] = []
+    @Published private(set) var latestVersion: String = ""
+    @Published private(set) var state: State = .loading
+    
     @Published var selectedChampion: Champion?
     @Published var searchingQuery = ""
-    @Published var state: State = .loading
     @Published var currentPage = 1
-    @Published var latestVersion: String = ""
+    
 
     enum State {
         case loading
@@ -53,16 +55,20 @@ import SwiftUI
     }
 
     var alphabeticallySortedChampions: [Champion] {
-        return Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
+        Array(champions.sorted(by: { $0.id < $1.id }).prefix(currentPage * pageSize))
     }
     
     var favoritedChampions: [Champion] {
         alphabeticallySortedChampions.filter { isFavorited(champion: $0) }
     }
+    
+    // MARK: - Init
 
     init(dataService: DataServiceProtocol) {
         self.dataService = dataService
     }
+    
+    // MARK: - Methods
 
     func load() async {
         async let loadLocales = loadLocales()
@@ -85,6 +91,7 @@ import SwiftUI
             })
         }
     }
+    
     func isFavorited(champion: Champion) -> Bool {
         return favoriteStates[champion.id] ?? false
     }

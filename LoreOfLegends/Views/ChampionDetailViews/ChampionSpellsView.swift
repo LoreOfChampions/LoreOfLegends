@@ -15,7 +15,7 @@ struct ChampionSpellsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("Spells", systemImage: "wand.and.stars")
+            Label(Constants.spells, systemImage: SFSymbols.wandAndStars)
                 .detailTitleLabelStyle()
                 .padding(.bottom, 5)
             PassiveSpellView(passive: passive)

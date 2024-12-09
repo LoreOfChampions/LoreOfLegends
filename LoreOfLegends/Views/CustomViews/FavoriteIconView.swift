@@ -21,7 +21,7 @@ struct FavoriteIconView: View {
                         Button {
                             onToggleFavorite()
                         } label: {
-                            Image(systemName: isFavorited ? "heart.fill" : "heart")
+                            Image(systemName: isFavorited ? SFSymbols.heartFill : SFSymbols.heart)
                                 .resizable()
                                 .frame(width: 15, height: 15)
                         }

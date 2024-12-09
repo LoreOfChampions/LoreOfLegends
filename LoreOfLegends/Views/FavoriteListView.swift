@@ -20,7 +20,7 @@ struct FavoriteListView: View {
                     } label: {
                         HStack {
                             CachedAsyncImage(
-                                url: URL(string: Constants.baseURL + "img/champion/splash/\(champion.id)_0.jpg"),
+                                url: URL(string: URLs.baseURL + "img/champion/splash/\(champion.id)_0.jpg"),
                                 urlCache: URLCache.imageCache) { image in
                                     image
                                         .resizable()
@@ -52,7 +52,7 @@ struct FavoriteListView: View {
                                     .padding()
                                 }
                         }
-                        .padding([.horizontal, .bottom])
+                        .padding([.top, .bottom])
                     }
                 }
             }

@@ -28,6 +28,9 @@ struct ChampionGridView: View {
                 }
             }
             .searchable(text: $viewModel.searchingQuery, placement: .navigationBarDrawer(displayMode: .always))
+            .refreshable {
+                await viewModel.load()
+            }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(Constants.appTitle)
@@ -58,7 +61,7 @@ struct SettingsButton: View {
         Button {
             shouldPresentSheet = true
         } label: {
-            Image(systemName: "gear")
+            SFSymbols.gear
                 .foregroundStyle(.gold3)
         }
     }

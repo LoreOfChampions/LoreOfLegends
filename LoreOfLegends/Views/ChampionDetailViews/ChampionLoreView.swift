@@ -14,7 +14,7 @@ struct ChampionLoreView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("Lore", systemImage: "book.fill")
+            Label(Constants.lore, systemImage: SFSymbols.bookFill)
                 .detailTitleLabelStyle()
 
             VStack(spacing: 10) {
@@ -52,7 +52,7 @@ struct ChampionLoreView: View {
                                 showFullLoreText.toggle()
                             }
                         } label: {
-                            Text(showFullLoreText ? "Read less" : "Read more...")
+                            Text(showFullLoreText ? Constants.showLess : Constants.showMore)
                                 .detailLabelStyle(fontSize: 18, color: .gold2)
                         }
                         .offset(y: showFullLoreText ? 0 : -50)

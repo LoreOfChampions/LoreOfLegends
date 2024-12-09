@@ -16,7 +16,7 @@ struct PassiveSpellView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             CachedAsyncImage(
-                url: URL(string: Constants.baseURL + "14.7.1/img/passive/\(passive.image.full)"),
+                url: URL(string: URLs.baseURL + "14.7.1/img/passive/\(passive.image.full)"),
                 urlCache: URLCache.imageCache) { image in
                     image
                         .resizable()
